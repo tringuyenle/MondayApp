@@ -1,0 +1,27 @@
+<p>kq-test works!</p>
+
+<table class="table-auto">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Task Name</th>
+        <th>Create By</th>
+        <th>Create Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of task_list">
+        <td> {{task.id}} </td>
+        <td> {{task.name}} </td>
+        <td> {{task.create_by}} </td>
+        <td> {{task.create_date}} </td>
+        <td> {{task.status}} </td>
+        <td>
+            <button (click)="deleteTask(task.id)" class="bg-cyan-300 rounded-full">
+                Delete
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
