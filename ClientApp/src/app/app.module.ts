@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { BoardcontentComponent } from './boardcontent/boardcontent.component';
 import { StatuslabelComponent } from './statuslabel/statuslabel.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { StatuslabelComponent } from './statuslabel/statuslabel.component';
     HomeComponent,
     HeaderComponent,
     BoardcontentComponent,
-    StatuslabelComponent
+    StatuslabelComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

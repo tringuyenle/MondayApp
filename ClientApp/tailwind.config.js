@@ -7,7 +7,9 @@ module.exports = {
     },
     darkMode: 'class', // or 'media' or 'class'
     theme: {
-      extend: {},
+      extend: {
+        visibility: ["group-hover"],
+      },
     },
     variants: {
       extend: {},
