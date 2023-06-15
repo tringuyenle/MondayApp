@@ -1,14 +1,32 @@
-using MondayApp.Data;
+
+using MondayApp.Model;
+using MondayApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.Configure<MondayDatabaseSettings>(builder.Configuration.GetSection("MondayDatabaseSettings"));
-builder.Services.AddSingleton<MondayService>();
+builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("MondayDatabaseSettings"));
+builder.Services.AddSingleton<TaskService>();
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowOrigin", builder =>
+    {
+        builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
+app.UseCors();
 
 // Configure the HTTP request pipeline.
 //if (!app.Environment.IsDevelopment())
@@ -21,17 +39,20 @@ var app = builder.Build();
 //app.UseStaticFiles();
 //app.UseRouting();
 
-app.MapGet("/", () => "Monday API!");
-app.MapPost("/api/monday", async (MondayService mondayService, Monday monday) =>
-{
-    await mondayService.Create(monday);
-    return Results.Ok();
-});
+app.UseAuthorization();
+app.MapControllers();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
+//app.MapGet("/", () => "Monday API!");
+//app.MapPost("/api/monday", async (MondayService mondayService, Monday monday) =>
+//{
+//    await mondayService.Create(monday);
+//    return Results.Ok();
+//});
 
-app.MapFallbackToFile("index.html");
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller}/{action=Index}/{id?}");
+
+//app.MapFallbackToFile("index.html");
 
 app.Run();
