@@ -3,9 +3,19 @@
         New Board
     </div>
     <div class="flex flex-col">
-     aaa
+        aaa
     </div>
-  </div>
+</div>
+
+<div class="bg-green-100 pl-10 pt-4 h-full relative">
+    <div *ngIf="collapse; else elseexpand">
+        <app-collapsegroup [(collapsec)]="collapse"></app-collapsegroup>
+    </div>
+     
+    <ng-template #elseexpand>
+        <app-expandgroup [(collapsee)]="collapse"></app-expandgroup>
+    </ng-template>
+</div>
 
 
-  <app-task-list></app-task-list>
+<app-task-list></app-task-list>
