@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { TaskService } from 'src/app/task.service';
 import { Task } from 'src/app/task';
 
@@ -9,7 +9,7 @@ import { Task } from 'src/app/task';
 })
 export class TaskListComponent implements OnInit{
 
-  task_list: Task[] = [];
+  @Output() task_list: Task[] = [];
   
   ngOnInit(): void {
     this.getTaskList();
@@ -36,3 +36,7 @@ export class TaskListComponent implements OnInit{
   }
 
 }
+function output() {
+  throw new Error('Function not implemented.');
+}
+

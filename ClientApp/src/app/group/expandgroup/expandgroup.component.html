@@ -1,2 +1,6 @@
 <button class="bg-blue-500" (click)="changetocollapse()">change to collapse</button>
 <p>expandgroup works!</p>
+
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let task of task_list" cdkDrag>{{task.id}}</div>
+</div>

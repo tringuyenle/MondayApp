@@ -11,7 +11,7 @@ import { BoardcontentComponent } from './boardcontent/boardcontent.component';
 import { StatuslabelComponent } from './statuslabel/statuslabel.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BoardinfoComponent } from './boardinfo/boardinfo.component';
-import { TaskListComponent } from './boardcontent/task-list/task-list.component';
+import { TaskListComponent } from './task-list/task-list.component';
 import { CollapsegroupComponent } from './group/collapsegroup/collapsegroup.component';
 import { ExpandgroupComponent } from './group/expandgroup/expandgroup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,7 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SidebarComponent,
     TaskListComponent,
     CollapsegroupComponent,
-    ExpandgroupComponent
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -37,7 +37,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
     ]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ExpandgroupComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
