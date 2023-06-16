@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { BoardcontentComponent } from './boardcontent/boardcontent.component';
 import { StatuslabelComponent } from './statuslabel/statuslabel.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { TaskListComponent } from './boardcontent/task-list/task-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HeaderComponent,
     BoardcontentComponent,
     StatuslabelComponent,
-    SidebarComponent
+    SidebarComponent,
+    TaskListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
