@@ -1,0 +1,37 @@
+<p>task-list works!</p>
+
+<table class="table-auto">
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Create By</th>
+        <th>Create Date</th>
+        <th>Status</th>
+        <th></th>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let task of task_list">
+            <td> {{task.id}}  </td>
+            <td> {{task.name}} </td>
+            <td> {{task.create_by}} </td>
+            <td> {{task.create_date}} </td>
+            <td> {{task.status}}</td>
+            <td> 
+                <button class="bg-cyan-500 rounded-full" (click)="deleteTask(task)">
+                    Delete
+                </button>
+            </td>
+
+
+
+
+        </tr>
+
+
+
+    </tbody>
+
+
+
+</table>  
