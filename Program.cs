@@ -8,7 +8,7 @@ builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("M
 builder.Services.AddSingleton<TaskService>();
 // Add services to the container.
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen();
@@ -26,7 +26,10 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseCors();
+app.UseCors(builder =>
+{
+    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+});
 
 // Configure the HTTP request pipeline.
 //if (!app.Environment.IsDevelopment())

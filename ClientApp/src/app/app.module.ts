@@ -11,6 +11,7 @@ import { BoardcontentComponent } from './boardcontent/boardcontent.component';
 import { StatuslabelComponent } from './statuslabel/statuslabel.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BoardinfoComponent } from './boardinfo/boardinfo.component';
+import { TaskListComponent } from './boardcontent/task-list/task-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BoardinfoComponent } from './boardinfo/boardinfo.component';
     BoardcontentComponent,
     BoardinfoComponent,
     StatuslabelComponent,
-    SidebarComponent
+    SidebarComponent,
+    TaskListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
