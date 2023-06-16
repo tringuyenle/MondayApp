@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { BoardcontentComponent } from './boardcontent/boardcontent.component';
 import { StatuslabelComponent } from './statuslabel/statuslabel.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { BoardinfoComponent } from './boardinfo/boardinfo.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HomeComponent,
     HeaderComponent,
     BoardcontentComponent,
+    BoardinfoComponent,
     StatuslabelComponent,
     SidebarComponent
   ],
