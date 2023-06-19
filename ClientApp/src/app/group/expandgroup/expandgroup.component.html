@@ -55,7 +55,7 @@
         </div>
     </div>
     <div cdkDropList (cdkDropListDropped)="drop($event)">
-        <div class="group" *ngFor="let task of task_list" cdkDrag>
+        <div class="group" *ngFor="let task of task_list" cdkDrag class="hover:bg-slate-100">
             <div class="pl-2 h-8 absolute left-px flex items-end">
                 <button class="p-1 hover:bg-slate-300 rounded-md" (click)="deleteTask(task)" >
                     <div class=" group-hover:fill-currentColor">
@@ -79,7 +79,7 @@
                                 {{task.create_by}}
                             </span>
                         </div>
-                        <div class="w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200">
+                        <div class="w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200 bg-red-500">
                             <span>
                                 {{task.status}}
                             </span>
