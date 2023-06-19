@@ -108,10 +108,10 @@
                     <div class="p-2 border-r-2 border-solid border-gray-200">
                         <input type="checkbox" class="border-gray-200">
                     </div>
-                    <div class="w-1/3 flex pl-8 py-2  border-r-2 border-solid border-gray-200">
-                        <div class="border-solid border-2 border-white group-hover:border-gray-300">
+                    <div class="w-1/3 flex px-2 py-1">
+                        <div class="w-full">
                             <form [formGroup]="task_form" >
-                                <input (keyup.enter)="saveTask()" type="text" formControlName="name" placeholder="+ Add Task">
+                                <input class="w-full py-0 placeholder:text-sm pl-5 border-y-white border-x-white group-hover:border-gray-300 rounded-md" (keyup.enter)="saveTask()" type="text" formControlName="name" placeholder="+ Add Task">
                             </form>
                         
                         </div>
@@ -121,3 +121,27 @@
         </div>
     </div>
 </div>
+
+<label class="example-listbox-label" id="example-satisfaction-label">
+    How was your service?
+  </label>
+  <ul cdkListbox
+      aria-labelledby="example-satisfaction-label"
+      class="example-listbox">
+    <li
+        [cdkOption]="1"
+        cdkOptionTypeaheadLabel="great"
+        class="example-option">
+      😀 Great
+    </li>
+    <li [cdkOption]="0"
+        cdkOptionTypeaheadLabel="okay"
+        class="example-option">
+      😐 Okay
+    </li>
+    <li [cdkOption]="-1"
+        cdkOptionTypeaheadLabel="bad"
+        class="example-option">
+      🙁 Bad
+    </li>
+  </ul>
