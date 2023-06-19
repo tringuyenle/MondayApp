@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:ClientApp/src/app/task-list/task-list.component.html
 <p>task-list works!</p>
 
 <table class="table-auto">
@@ -9,20 +10,31 @@
         <th>Status</th>
         <th></th>
         <td></td>
+=======
+<table class="min-w-full divide-y divide-gray-200" class="table-auto">
+    <thead class="bg-gray-50">
+        <th class="py-3 px-6 text-left">ID</th>
+        <th class="py-3 px-6 text-left">Name</th>
+        <th class="py-3 px-6 text-left">Create By</th>
+        <th class="py-3 px-6 text-left">Create Date</th>
+        <th class="py-3 px-6 text-left">Status</th>
+        <th class="py-3 px-6 text-left"></th>
+>>>>>>> Stashed changes:ClientApp/src/app/boardcontent/task-list/task-list.component.html
     </thead>
 
-    <tbody>
-        <tr *ngFor="let task of task_list">
-            <td> {{task.id}}  </td>
-            <td> {{task.name}} </td>
-            <td> {{task.create_by}} </td>
-            <td> {{task.create_date}} </td>
-            <td> {{task.status}}</td>
-            <td> 
-                <button class="bg-cyan-500 rounded-full" (click)="deleteTask(task)">
+    <tbody class="bg-white divide-y divide-gray-200">
+        <tr *ngFor="let task eof task_list">
+            <td class="py-4 px-6"> {{task.id}}  </td>
+            <td class="py-4 px-6"> {{task.name}} </td>
+            <td class="py-4 px-6"> {{task.create_by}} </td>
+            <td class="py-4 px-6"> {{task.create_date}} </td>
+            <td class="py-4 px-6"> {{task.status}}</td>
+            <td class="py-4 px-6"> 
+                <button class="p-2 bg-cyan-500 rounded-full" (click)="deleteTask(task)">
                     Delete
                 </button>
             </td>
+<<<<<<< Updated upstream:ClientApp/src/app/task-list/task-list.component.html
             <td>
                 <button [routerLink]="['/task', task.id, 'edit']">
                     Edit
@@ -37,3 +49,8 @@
         </tr>
     </tbody>
 </table>  
+=======
+        </tr>
+    </tbody>
+</table>  
+>>>>>>> Stashed changes:ClientApp/src/app/boardcontent/task-list/task-list.component.html
