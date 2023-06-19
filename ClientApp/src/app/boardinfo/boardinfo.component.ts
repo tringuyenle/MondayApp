@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Tooltip } from "flowbite";
+import type { TooltipOptions, TooltipInterface } from "flowbite";
 
 @Component({
   selector: 'app-boardinfo',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class BoardinfoComponent {
 
-}
+};
+
+
+
+
+

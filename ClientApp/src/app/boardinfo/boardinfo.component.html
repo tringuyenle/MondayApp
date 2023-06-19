@@ -1,3 +1,5 @@
+<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+
 <div class="rounded-tl-2xl block items-center justify-center pt-3 pl-10">
     <!-- Board-header-top -->
     <div class="flex items-center justify-between">
@@ -142,31 +144,37 @@
             </div>
         </button>
         <button class="flex items-center">
-            <div class="ml-3 p-2 flex items-center hover:bg-slate-300 rounded-md text-gray-600">
+            <div class="group relative inline-block ml-3 p-2 flex items-center hover:bg-slate-300 rounded-md text-gray-600">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
                 <span class="pl-1 text-sm">Person</span>
+                <span style="width:114px"
+                class="absolute hidden group-hover:flex -left-6 -top-3 -translate-y-full px-2 py-2 bg-gray-700 rounded-lg text-center text-white text-sm after:content-[''] after:absolute after:left-1/2 after:top-[100%] after:-translate-x-1/2 after:border-8 after:border-x-transparent after:border-b-transparent after:border-t-gray-700">Filter by person</span>
             </div>
         </button>
         <button class="flex items-center">
-            <div class="ml-3 p-2 flex items-center hover:bg-slate-300 rounded-md text-gray-600">
+            <div class="group relative inline-block ml-3 p-2 flex items-center hover:bg-slate-300 rounded-md text-gray-600">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z"/></svg>
                 <span class="pl-1 text-sm">Filter</span>
+                <span style="width:124px"
+                class="absolute hidden group-hover:flex -left-8 -top-3 -translate-y-full px-2 py-2 bg-gray-700 rounded-lg text-center text-white text-sm after:content-[''] after:absolute after:left-1/2 after:top-[100%] after:-translate-x-1/2 after:border-8 after:border-x-transparent after:border-b-transparent after:border-t-gray-700">Filter by anything</span>
             </div>
         </button>
         <button class="flex items-center">
-            <div class="ml-3 p-2 flex items-center hover:bg-slate-300 rounded-md text-gray-600">
+            <div class="group relative inline-block p-2 flex items-center hover:bg-slate-300 rounded-md text-gray-600">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M137.4 41.4c12.5-12.5 32.8-12.5 45.3 0l128 128c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l128-128zm0 429.3l-128-128c-9.2-9.2-11.9-22.9-6.9-34.9s16.6-19.8 29.6-19.8H288c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-128 128c-12.5 12.5-32.8 12.5-45.3 0z"/></svg>
                 <span class="pl-1 text-sm">Soft</span>
+                <span style="width:136px"
+                class="absolute hidden group-hover:flex -left-10 -top-3 -translate-y-full px-2 py-2 bg-gray-700 rounded-lg text-center text-white text-sm after:content-[''] after:absolute after:left-1/2 after:top-[100%] after:-translate-x-1/2 after:border-8 after:border-x-transparent after:border-b-transparent after:border-t-gray-700">Sort by any column</span>
             </div>
         </button>
-        <button class="flex items-center">
-            <div class="ml-3 p-2 flex items-center hover:bg-slate-300 rounded-md text-gray-600">
+        <button data-popover-target="popover-default" class="flex items-center">
+            <div class="group relative inline-block p-2 flex items-center hover:bg-slate-300 rounded-md text-gray-600">
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z"/></svg>
                 <span class="pl-1 text-sm">Hidden</span>
+                <span style="width:120px"
+                class="absolute hidden group-hover:flex -left-5 -top-3 -translate-y-full px-2 py-2 bg-gray-700 rounded-lg text-center text-white text-sm after:content-[''] after:absolute after:left-1/2 after:top-[100%] after:-translate-x-1/2 after:border-8 after:border-x-transparent after:border-b-transparent after:border-t-gray-700">Hidden Columns</span>
             </div>
         </button>
-
-        
         <button class="flex items-center">
             <div class="ml-3 p-2 hover:bg-slate-300 rounded-md">
                 <svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20" aria-hidden="true"
