@@ -38,9 +38,6 @@ import { TaskRoutingModule } from './task-routing.module';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    // RouterModule.forRoot([
-    //   { path: '', component: HomeComponent, pathMatch: 'full' },
-    // ]),
     BrowserAnimationsModule,
     ExpandgroupComponent,
     TaskRoutingModule,

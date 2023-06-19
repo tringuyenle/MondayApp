@@ -1,7 +1,7 @@
 export interface Task {
     id: string;
     name: string;
-    parent_task: string;
+    person: string;
     child_task: string[];
     create_by: string;
     create_date: string;

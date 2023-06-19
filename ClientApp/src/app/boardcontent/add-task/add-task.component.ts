@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/task.service';
 import { Task } from 'src/app/task';
-import { FormControlName, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormControlName, FormGroup, FormControl, FormBuilder} from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -17,13 +17,13 @@ export class AddTaskComponent implements OnInit, OnDestroy {
   private sub!: Subscription;
   mess: string = "";
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private task_service: TaskService) {}
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private task_service: TaskService) {}
 
   ngOnInit(): void {
       this.task_form = this.fb.group({
         id: '',
         name: '',
-        parent_task: '',
+        person: '',
         child_task: [],
         create_by: '',
         create_date: '',
@@ -31,14 +31,21 @@ export class AddTaskComponent implements OnInit, OnDestroy {
       });
 
       this.sub = this.route.paramMap.subscribe(param => {
-        const id = param.get('id');
-        if(id == '0') {
-          const task: Task = {id: "0", name: "", parent_task: "", child_task: [], create_by: "", create_date: "", status: "",};
-          this.displayTask(task);
+        let temp = param.get('id');
+        var new_name: string = "";
+        if (temp) {
+          new_name = temp;
         }
-        else {
-          this.getTask(id);
-        }
+        // if(id == '0') {
+        //   const task: Task = {id: "0", name: "", parent_task: "", child_task: [], create_by: "", create_date: "", status: "",};
+        //   this.displayTask(task);
+        // }
+        // else {
+        //   this.getTask(id);
+        // }
+        const task: Task = {id: "0", name: new_name , person: "", child_task: [], create_by: "", create_date: "", status: "",};
+        this.displayTask(task);
+        this.saveTask();
       });
   }
 
@@ -52,7 +59,7 @@ export class AddTaskComponent implements OnInit, OnDestroy {
     this.task_form.patchValue({
       id: this.task.id,
       name: this.task.name,
-      parent_task: this.task.parent_task,
+      parent_task: this.task.person,
       child_task: this.task.child_task,
       create_by: this.task.create_by,
       create_date: this.task.create_date,
@@ -76,7 +83,7 @@ export class AddTaskComponent implements OnInit, OnDestroy {
         const t: Task = {...this.task, ...this.task_form.value};
         if(t.id === '0') {
           this.task_service.createTask(t).subscribe({
-            error: () => this.mess="Thêm mới thành công"
+            error: () => console.log("Thêm thành công")
           });
         }
         else {
@@ -96,7 +103,7 @@ export class AddTaskComponent implements OnInit, OnDestroy {
 
   onSaveComplete(): void {
     this.task_form.reset();
-    this.router.navigate(['/task'])
+    // this.router.navigate(['/task'])
   }
 }
 
