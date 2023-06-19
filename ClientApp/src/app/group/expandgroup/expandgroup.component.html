@@ -16,7 +16,7 @@
                     <span class="py-1 ml-2 text-xl text-blue-500 font-medium">
                         Group Title
                     </span>
-                    <span class="ml-5 text-gray-500 hidden group-hover:block">4 Tasks / 1 Subitem</span>
+                    <span class="ml-5 text-gray-500 hidden group-hover:block">{{task_list.length}} Tasks</span>
                 </div>
             </div>
         </div>
@@ -123,3 +123,22 @@
         </div>
     </div>
 </div>
+<div class="example-listbox-container">
+    <label class="example-listbox-label" id="example-language-label">
+      Preferred Language
+    </label>
+    <ul cdkListbox
+        [formControl]="languageCtrl"
+        aria-labelledby="example-language-label"
+        class="example-listbox">
+      <li *ngFor="let language of languages"
+          [cdkOption]="language"
+          class="example-option">
+        {{language}}
+      </li>
+    </ul>
+  </div>
+  <p>
+    Your preferred language: <strong>{{languageCtrl.value | json}}</strong>&nbsp;
+    <button (click)="languageCtrl.reset()">Reset</button>
+  </p>

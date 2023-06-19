@@ -1,7 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray} from '@angular/cdk/drag-drop';
-import {NgFor} from '@angular/common';
-import { FormGroup, FormsModule, FormControlName} from '@angular/forms';
+import {CdkListbox, CdkOption} from '@angular/cdk/listbox';
+import {NgFor, JsonPipe} from '@angular/common';
+import { Task } from 'src/app/task';
+import { TaskService } from 'src/services/task-service/task.service';
+import { FormBuilder, FormGroup, FormsModule, FormControlName, FormControl } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TaskListService } from 'src/services/task-list-service/task-list.service';
 import { AddTaskService } from 'src/services/add-task-service/add-task.service';
@@ -11,12 +14,17 @@ import { AddTaskService } from 'src/services/add-task-service/add-task.service';
   templateUrl: './expandgroup.component.html',
   styleUrls: ['./expandgroup.component.css'],
   standalone: true,
-  imports: [CdkDropList, NgFor, CdkDrag, FormsModule, ReactiveFormsModule],
+  imports: [CdkDropList, NgFor, CdkDrag, FormsModule, ReactiveFormsModule, CdkListbox, CdkOption, JsonPipe],
   providers: [TaskListService, AddTaskService],
 })
 export class ExpandgroupComponent implements OnInit {
   @Input() collapsee: boolean = false;
   @Output() collapseeChange = new EventEmitter<boolean>();
+  task_list: Task[] = [];
+  task_form!: FormGroup;
+  task!: Task;
+  languages = ['C++', 'Java', 'JavaScript', 'Python', 'TypeScript'];
+  languageCtrl = new FormControl(['TypeScript']);
 
   changetocollapse() {
     this.collapseeChange.emit(true);
