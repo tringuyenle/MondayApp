@@ -33,7 +33,7 @@ export class AddTaskComponent implements OnInit, OnDestroy {
       this.sub = this.route.paramMap.subscribe(param => {
         const id = param.get('id');
         if(id == '0') {
-          const task: Task = {id: "", name: "", parent_task: "", child_task: [], create_by: "", create_date: "", status: "",};
+          const task: Task = {id: "0", name: "", parent_task: "", child_task: [], create_by: "", create_date: "", status: "",};
           this.displayTask(task);
         }
         else {
@@ -48,12 +48,6 @@ export class AddTaskComponent implements OnInit, OnDestroy {
     }
 
     this.task = task;
-    // if(this.task.id === '0') {
-    //   this.title = "Add Task!!!";
-    // }
-    // else {
-    //   this.title = `Edit task ${task.name}`;
-    // }
 
     this.task_form.patchValue({
       id: this.task.id,
