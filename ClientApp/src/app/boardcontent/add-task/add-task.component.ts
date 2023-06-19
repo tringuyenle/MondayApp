@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { TaskService } from 'src/app/task.service';
+import { TaskService } from 'src/services/task-service/task.service';
 import { Task } from 'src/app/task';
 import { FormControlName, FormGroup, FormControl, FormBuilder} from '@angular/forms';
 import { Subscription } from 'rxjs';
