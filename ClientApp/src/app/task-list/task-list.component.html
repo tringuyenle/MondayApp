@@ -8,6 +8,7 @@
         <th>Create Date</th>
         <th>Status</th>
         <th></th>
+        <td></td>
     </thead>
 
     <tbody>
@@ -22,16 +23,17 @@
                     Delete
                 </button>
             </td>
-
-
-
-
+            <td>
+                <button [routerLink]="['/task', task.id, 'edit']">
+                    Edit
+                </button>
+            </td>
         </tr>
 
-
-
+        <tr>
+            <button [routerLink]="['/task/0/edit']">
+                Add
+            </button>
+        </tr>
     </tbody>
-
-
-
 </table>  

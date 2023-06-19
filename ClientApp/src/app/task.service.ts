@@ -17,7 +17,7 @@ export class TaskService {
     return this.http_client.get<Task[]>(this.task_url);
   }
 
-  getOneTask(id: string): Observable<Task> {
+  getOneTask(id: string | null): Observable<Task> {
     let temp_url = this.task_url + `/${id}`;
 
     return this.http_client.get<Task>(temp_url);
