@@ -20,7 +20,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddTaskComponent } from './boardcontent/add-task/add-task.component';
 import { TaskRoutingModule } from './task-routing.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +31,7 @@ import { TaskRoutingModule } from './task-routing.module';
     SidebarComponent,
     TaskListComponent,
     CollapsegroupComponent,
-    AddTaskComponent
+    AddTaskComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

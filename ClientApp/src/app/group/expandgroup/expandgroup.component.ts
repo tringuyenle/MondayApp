@@ -45,6 +45,4 @@ export class ExpandgroupComponent implements OnInit {
   constructor(public task_list_service: TaskListService, public add_task_service: AddTaskService, public edit_task_service: EditTaskService) {}
 
 }
-function output() {
-  throw new Error('Function not implemented.');
-}
+
