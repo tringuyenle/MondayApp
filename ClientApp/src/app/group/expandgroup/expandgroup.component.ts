@@ -8,13 +8,15 @@ import { FormBuilder, FormGroup, FormsModule, FormControlName, FormControl } fro
 import { ReactiveFormsModule } from '@angular/forms';
 import { TaskListService } from 'src/services/task-list-service/task-list.service';
 import { AddTaskService } from 'src/services/add-task-service/add-task.service';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-expandgroup',
   templateUrl: './expandgroup.component.html',
   styleUrls: ['./expandgroup.component.css'],
   standalone: true,
-  imports: [CdkDropList, NgFor, CdkDrag, FormsModule, ReactiveFormsModule, CdkListbox, CdkOption, JsonPipe],
+  imports: [CdkDropList, NgFor, CdkDrag, FormsModule, ReactiveFormsModule, CdkListbox, CdkOption, JsonPipe, MatMenuModule, MatButtonModule],
   providers: [TaskListService, AddTaskService],
 })
 export class ExpandgroupComponent implements OnInit {
