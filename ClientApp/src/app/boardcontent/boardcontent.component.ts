@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./boardcontent.component.css']
 })
 export class BoardcontentComponent {
-  collapse: boolean = false;
+  collapse: boolean = true;
 }

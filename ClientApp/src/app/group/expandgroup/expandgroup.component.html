@@ -83,7 +83,7 @@
                                 {{task.create_by}}
                             </span>
                         </div>
-                        <div (click)="editColor(task)" class="relative text-white w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200 {{task.status}}">
+                        <div (click)="editColor(task)" class="relative text-white w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200 {{Status}}">
                             <ng-container *ngIf="taskid == task.id;">
                                 <div class="absolute top-10 z-10 h-fit p-4 rounded-md shadow-2xl bg-white">
                                     <button *ngFor="let c of colorlist" (click)="editColorSuccess(c, task)" class="flex justify-center items-center w-full {{c}} py-1 px-2 rounded-md mb-1 text-white">
