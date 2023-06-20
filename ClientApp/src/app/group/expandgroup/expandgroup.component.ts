@@ -25,8 +25,9 @@ import {MatNativeDateModule} from '@angular/material/core';
 export class ExpandgroupComponent implements OnInit {
   @Input() collapsee: boolean = false;
   @Output() collapseeChange = new EventEmitter<boolean>();
-  languages = ['C++', 'Java', 'JavaScript', 'Python', 'TypeScript'];
-  languageCtrl = new FormControl(['TypeScript']);
+  task_list: Task[] = [];
+  task_form!: FormGroup;
+  task!: Task;
 
   changetocollapse() {
     this.collapseeChange.emit(true);

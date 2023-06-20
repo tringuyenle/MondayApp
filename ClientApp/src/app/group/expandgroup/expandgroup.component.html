@@ -84,7 +84,7 @@
                                 {{task.create_by}}
                             </span>
                         </div>
-                        <div class="w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200 bg-red-500">
+                        <div class="w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200 bg-indigo-300">
                             <span>
                                 {{task.status}}
                             </span>
@@ -126,23 +126,4 @@
             </div>
         </div>
     </div>
-</div>
-<div class="example-listbox-container">
-    <label class="example-listbox-label" id="example-language-label">
-      Preferred Language
-    </label>
-    <ul cdkListbox
-        [formControl]="languageCtrl"
-        aria-labelledby="example-language-label"
-        class="example-listbox">
-      <li *ngFor="let language of languages"
-          [cdkOption]="language"
-          class="example-option">
-        {{language}}
-      </li>
-    </ul>
-  </div>
-  <p>
-    Your preferred language: <strong>{{languageCtrl.value | json}}</strong>&nbsp;
-    <button (click)="languageCtrl.reset()">Reset</button>
-  </p>
+</div>      
