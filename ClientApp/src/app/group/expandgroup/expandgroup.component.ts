@@ -23,8 +23,6 @@ export class ExpandgroupComponent implements OnInit {
   task_list: Task[] = [];
   task_form!: FormGroup;
   task!: Task;
-  languages = ['C++', 'Java', 'JavaScript', 'Python', 'TypeScript'];
-  languageCtrl = new FormControl(['TypeScript']);
 
   changetocollapse() {
     this.collapseeChange.emit(true);
