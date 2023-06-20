@@ -42,7 +42,16 @@ export class ExpandgroupComponent implements OnInit {
   editColorSuccess(c: string, t: Task): void {
     this.color = c;
     t.status = c;
-    this.task_service.updateTask(t);
+    this.save(t);
+  }
+
+  save(task: Task) {
+    this.task_service.updateTask(task).subscribe({
+      error: () => {
+        console.log("Da update");
+        this.task_list_service.reloadTaskList();
+      }
+    })
   }
 
   changetocollapse() {
