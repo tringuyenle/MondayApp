@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { BoardcontentComponent } from './boardcontent/boardcontent.component';
-import { StatuslabelComponent } from './statuslabel/statuslabel.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BoardinfoComponent } from './boardinfo/boardinfo.component';
 import { TaskListComponent } from './task-list/task-list.component';
@@ -27,7 +26,6 @@ import { TaskRoutingModule } from './task-routing.module';
     HeaderComponent,
     BoardcontentComponent,
     BoardinfoComponent,
-    StatuslabelComponent,
     SidebarComponent,
     TaskListComponent,
     CollapsegroupComponent,

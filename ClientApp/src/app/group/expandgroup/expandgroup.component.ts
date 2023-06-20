@@ -13,6 +13,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
+import { Task } from 'src/app/task';
 
 @Component({
   selector: 'app-expandgroup',
@@ -25,9 +26,22 @@ import {MatNativeDateModule} from '@angular/material/core';
 export class ExpandgroupComponent implements OnInit {
   @Input() collapsee: boolean = false;
   @Output() collapseeChange = new EventEmitter<boolean>();
-  task_list: Task[] = [];
-  task_form!: FormGroup;
-  task!: Task;
+
+  colorlist: string[] = ['bg-green-500', 'bg-blue-500', 'bg-red-500', 'bg-yellow-500', 'bg-black'];
+
+  color: string = this.colorlist[2];
+  
+  taskid: string = '';
+
+  editColor(task: Task): void {
+    this.taskid = task.id;
+  }
+
+  editColorSuccess(c: string, t: Task): void {
+    this.taskid = '';
+    this.color = c;
+    t.status = c;
+  }
 
   changetocollapse() {
     this.collapseeChange.emit(true);
