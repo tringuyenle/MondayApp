@@ -28,7 +28,7 @@ export class ExpandgroupComponent implements OnInit {
   @Input() collapsee: boolean = false;
   @Output() collapseeChange = new EventEmitter<boolean>();
 
-  colorlist: string[] = ['bg-green-500', 'bg-blue-500', 'bg-red-500', 'bg-yellow-500', 'bg-black'];
+  colorlist: string[] = ['bg-green-400', 'bg-amber-300', 'bg-red-500', 'bg-gray-300'];
 
   color: string = this.colorlist[2];
   
