@@ -14,6 +14,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 import { Task } from 'src/app/task';
+import { TaskService } from 'src/services/task-service/task.service';
 
 @Component({
   selector: 'app-expandgroup',
@@ -34,13 +35,14 @@ export class ExpandgroupComponent implements OnInit {
   taskid: string = '';
 
   editColor(task: Task): void {
-    this.taskid = task.id;
+    if (this.taskid === '') this.taskid = task.id;
+    else this.taskid = '';
   }
 
   editColorSuccess(c: string, t: Task): void {
-    this.taskid = '';
     this.color = c;
     t.status = c;
+    this.task_service.updateTask(t);
   }
 
   changetocollapse() {
@@ -56,7 +58,7 @@ export class ExpandgroupComponent implements OnInit {
     this.add_task_service.buildForm('');
   }
 
-  constructor(public task_list_service: TaskListService, public add_task_service: AddTaskService, public edit_task_service: EditTaskService) {}
+  constructor(public task_list_service: TaskListService, public add_task_service: AddTaskService, public edit_task_service: EditTaskService, private task_service: TaskService) {}
 
 }
 
