@@ -9,9 +9,3 @@ export interface Task {
     selected: boolean;
 }
 
-
-// const status: Status = {
-//     id: 1,
-//     name: "Hoàn thành",
-//     color: "#00ff00"
-// };
