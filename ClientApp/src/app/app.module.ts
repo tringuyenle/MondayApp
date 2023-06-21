@@ -59,7 +59,6 @@ registerLocaleData(en);
     MatIconModule,
     MatTableModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

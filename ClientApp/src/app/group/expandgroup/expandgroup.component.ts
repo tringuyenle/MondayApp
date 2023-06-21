@@ -18,7 +18,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TaskListService } from 'src/services/task-list-service/task-list.service';
 import { AddTaskService } from 'src/services/add-task-service/add-task.service';
 import { RouterModule } from '@angular/router';
-
 import { NgIf } from '@angular/common';
 import { EditTaskService } from 'src/services/edit-task-service/edit-task.service';
 
