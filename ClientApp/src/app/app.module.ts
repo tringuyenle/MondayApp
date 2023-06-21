@@ -9,17 +9,29 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { BoardcontentComponent } from './boardcontent/boardcontent.component';
-import { StatuslabelComponent } from './statuslabel/statuslabel.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BoardinfoComponent } from './boardinfo/boardinfo.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { CollapsegroupComponent } from './group/collapsegroup/collapsegroup.component';
 import { ExpandgroupComponent } from './group/expandgroup/expandgroup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
 
 import { AddTaskComponent } from './boardcontent/add-task/add-task.component';
 import { TaskRoutingModule } from './task-routing.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import {MatTreeModule} from '@angular/material/tree';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -28,11 +40,10 @@ import { TaskRoutingModule } from './task-routing.module';
     HeaderComponent,
     BoardcontentComponent,
     BoardinfoComponent,
-    StatuslabelComponent,
     SidebarComponent,
     TaskListComponent,
     CollapsegroupComponent,
-    AddTaskComponent
+    AddTaskComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -43,8 +54,18 @@ import { TaskRoutingModule } from './task-routing.module';
     TaskRoutingModule,
     ReactiveFormsModule,
     RouterModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    NzDatePickerModule,
+    MatTreeModule,
+    MatIconModule,
+    MatTableModule
   ],
-  providers: [],
+  providers: [
+    { provide: NZ_I18N, useValue: en_US }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
