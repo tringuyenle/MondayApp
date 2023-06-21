@@ -24,7 +24,8 @@
                     <span class="py-1 ml-2 text-xl text-blue-500 font-medium">
                         This Month
                     </span>
-                    <span class="ml-5 text-gray-500 hidden group-hover:block">{{task_list_service.task_list.length}} Tasks</span>
+                    <span class="ml-5 text-gray-500 hidden group-hover:block">{{task_list_service.task_list.length}}
+                        Tasks</span>
                 </div>
             </div>
         </div>
@@ -103,6 +104,9 @@
                                         class="flex justify-center border items-center w-full py-1 px-3 rounded-md mb-1 text-black">
                                         {{p}}
                                     </button>
+                                    <div (click)="clickInputAddPerson(task)">
+                                        <input type="text" [(ngModel)]="person" (keyup.enter)="addPerson()" placeholder="Add Person" class="rounded border-gray-300">
+                                    </div>
                                 </div>
                             </ng-container>
                             {{task.create_by}}
@@ -120,7 +124,9 @@
                             {{ Status.get(task.status) }}
                         </button>
                         <div class="w-40 flex justify-center p-1 border-r-2 border-solid border-gray-200">
-                            <input type="date" id="{{task.id}}date" class="p-0.5 pl-4 border-none border-inherit group-hover:bg-slate-100 hover:border-solid hover:border-gray-300" value="{{task.create_date}}" (change)="setdate(task)">
+                            <input type="date" id="{{task.id}}date"
+                                class="p-0.5 pl-4 border-none border-inherit group-hover:bg-slate-100 hover:border-solid hover:border-gray-300"
+                                value="{{task.create_date}}" (change)="setdate(task)">
                         </div>
                     </div>
                 </div>
@@ -156,7 +162,6 @@
                                     (keyup.enter)="add_task_service.saveTask()" type="text" formControlName="name"
                                     placeholder="+ Add Task">
                             </form>
-
                         </div>
                     </div>
                 </div>

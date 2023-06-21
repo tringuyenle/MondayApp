@@ -50,10 +50,11 @@ export class ExpandgroupComponent implements OnInit {
   //check selected Person Column
   personid: string = '';
   personlist: string[] = ['Thành', 'Quân', 'Nguyên'];
-  // isSelected: string = 'bg-green-400';
-  //selected = true -> bg-gray-300
-  //selected = false -> bg-gray-400
+  person: string = '';
 
+  addPerson(): void {
+    this.personlist.push(this.person);
+  }
 
   editColor(task: Task): void {
     if (this.taskid === '') this.taskid = task.id;
@@ -67,12 +68,19 @@ export class ExpandgroupComponent implements OnInit {
 
   editPerson(task: Task): void {
     if (this.personid === '') this.personid = task.id;
+    else if (this.personid == 'add') this.personid = task.id;
     else this.personid = '';
   }
+
+  clickInputAddPerson(task: Task): void {
+    this.personid = 'add';
+  }
+
   editPersonSuccess(p: string, t: Task): void {
     t.create_by = p;
+    this.save(t);
   }
-  
+
   setdate(t: Task): void {
     t.create_date = (<HTMLInputElement>document.getElementById(t.id+"date")).value;
     this.save(t);
