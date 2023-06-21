@@ -44,7 +44,16 @@ export class ExpandgroupComponent implements OnInit {
   color: string = this.colorlist[2];
   taskid: string = '';
   Status = new Map<string, string>([["bg-green-400", "Done"], ['bg-amber-400', 'Working on it'], ['bg-red-500', 'Stuck'], ['bg-gray-300', 'None']]);
+  
   selectedAll: any;
+
+  //check selected Person Column
+  personid: string = '';
+  personlist: string[] = ['Thành', 'Quân', 'Nguyên'];
+  // isSelected: string = 'bg-green-400';
+  //selected = true -> bg-gray-300
+  //selected = false -> bg-gray-400
+
 
   editColor(task: Task): void {
     if (this.taskid === '') this.taskid = task.id;
@@ -56,6 +65,14 @@ export class ExpandgroupComponent implements OnInit {
     this.save(t);
   }
 
+  editPerson(task: Task): void {
+    if (this.personid === '') this.personid = task.id;
+    else this.personid = '';
+  }
+  editPersonSuccess(p: string, t: Task): void {
+    t.create_by = p;
+  }
+  
   setdate(t: Task): void {
     t.create_date = (<HTMLInputElement>document.getElementById(t.id+"date")).value;
     this.save(t);
