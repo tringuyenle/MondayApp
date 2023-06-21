@@ -31,7 +31,7 @@ export class AddTaskService implements OnInit{
 
     let temp = new Date;
 
-    const task: Task = {id: "", name: "" , person: "None", child_task: [], create_by: "None", create_date: temp.toLocaleDateString("Vi") , status: "bg-gray-200"};
+    const task: Task = {id: "", name: "" , person: "None", child_task: [], create_by: "None", create_date: temp.toLocaleDateString("Vi") , status: "bg-gray-300"};
 
     if (name) {
       task.name = name;

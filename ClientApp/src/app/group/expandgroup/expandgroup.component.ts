@@ -29,22 +29,15 @@ export class ExpandgroupComponent implements OnInit {
   @Output() collapseeChange = new EventEmitter<boolean>();
 
   colorlist: string[] = ['bg-green-400', 'bg-amber-400', 'bg-red-500', 'bg-gray-300'];
-  Status: Record<string, string> = {
-    bggreen400: 'Done',
-    'bg-amber-400': 'Working on it',
-    'bg-red-500': 'Stuck',
-    'bg-gray-300': '',
-  };
-
   color: string = this.colorlist[2];
-  
   taskid: string = '';
+  Status = new Map<string, string>([["bg-green-400", "Done"], ['bg-amber-400', 'Working on it'], ['bg-red-500', 'Stuck'], ['bg-gray-300', 'None']]);
+  
 
   editColor(task: Task): void {
     if (this.taskid === '') this.taskid = task.id;
     else this.taskid = '';
   }
-
   editColorSuccess(c: string, t: Task): void {
     this.color = c;
     t.status = c;

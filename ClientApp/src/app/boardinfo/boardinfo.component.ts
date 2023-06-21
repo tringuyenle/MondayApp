@@ -17,9 +17,6 @@ export class BoardinfoComponent {
     this.add_task_service.buildForm("New Task");
     this.add_task_service.saveTask();
   }
-
-
-
 };
 
 
