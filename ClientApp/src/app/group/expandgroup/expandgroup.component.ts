@@ -5,7 +5,6 @@ import {
   Inject,
   OnDestroy,
 } from '@angular/core';
-import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCalendar} from '@angular/material/datepicker';
@@ -19,9 +18,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TaskListService } from 'src/services/task-list-service/task-list.service';
 import { AddTaskService } from 'src/services/add-task-service/add-task.service';
 import { RouterModule } from '@angular/router';
-import { getISOWeek } from 'date-fns';
-
-import { en_US, NzI18nService, zh_CN } from 'ng-zorro-antd/i18n';
 import { NgIf } from '@angular/common';
 import { EditTaskService } from 'src/services/edit-task-service/edit-task.service';
 
@@ -75,6 +71,10 @@ export class ExpandgroupComponent implements OnInit {
   }
   editPersonSuccess(p: string, t: Task): void {
     t.create_by = p;
+  }
+  
+  setdate(t: Task): void {
+    t.create_date = (<HTMLInputElement>document.getElementById(t.id+"date")).value;
     this.save(t);
   }
 

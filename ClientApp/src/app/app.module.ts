@@ -22,11 +22,8 @@ import { AddTaskComponent } from './boardcontent/add-task/add-task.component';
 import { TaskRoutingModule } from './task-routing.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
-import { NZ_I18N } from 'ng-zorro-antd/i18n';
-import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
@@ -58,13 +55,9 @@ registerLocaleData(en);
     MatInputModule,
     MatFormFieldModule,
     MatNativeDateModule,
-    NzDatePickerModule,
     MatTreeModule,
     MatIconModule,
     MatTableModule
-  ],
-  providers: [
-    { provide: NZ_I18N, useValue: en_US }
   ],
   bootstrap: [AppComponent]
 })
