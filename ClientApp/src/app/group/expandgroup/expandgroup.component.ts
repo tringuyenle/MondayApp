@@ -75,7 +75,12 @@ export class ExpandgroupComponent implements OnInit {
   }
 
   save(task: Task) {
-    this.edit_task_service.saveCell(task);
+    this.task_service.updateTask(task).subscribe({
+      error: () => {
+        console.log("Da update");
+        this.task_list_service.reloadTaskList();
+      }
+    })
   }
 
   selectAll() {
