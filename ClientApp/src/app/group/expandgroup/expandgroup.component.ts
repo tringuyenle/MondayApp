@@ -50,10 +50,6 @@ export class ExpandgroupComponent implements OnInit {
   //check selected Person Column
   personid: string = '';
   personlist: string[] = ['Thành', 'Quân', 'Nguyên'];
-  // isSelected: string = 'bg-green-400';
-  //selected = true -> bg-gray-300
-  //selected = false -> bg-gray-400
-
 
   editColor(task: Task): void {
     if (this.taskid === '') this.taskid = task.id;
