@@ -1,4 +1,15 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Inject,
+  OnDestroy,
+} from '@angular/core';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCalendar} from '@angular/material/datepicker';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
 import {CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray} from '@angular/cdk/drag-drop';
 import {CdkListbox, CdkOption} from '@angular/cdk/listbox';
 import {NgFor, JsonPipe} from '@angular/common';
@@ -6,6 +17,8 @@ import { FormBuilder, FormGroup, FormsModule, FormControlName, FormControl } fro
 import { ReactiveFormsModule } from '@angular/forms';
 import { TaskListService } from 'src/services/task-list-service/task-list.service';
 import { AddTaskService } from 'src/services/add-task-service/add-task.service';
+import { RouterModule } from '@angular/router';
+
 import { NgIf } from '@angular/common';
 import { EditTaskService } from 'src/services/edit-task-service/edit-task.service';
 
@@ -21,8 +34,8 @@ import { TaskService } from 'src/services/task-service/task.service';
   templateUrl: './expandgroup.component.html',
   styleUrls: ['./expandgroup.component.css'],
   standalone: true,
+  providers: [TaskListService, AddTaskService],
   imports: [CdkDropList, NgFor, CdkDrag, FormsModule, ReactiveFormsModule, CdkListbox, CdkOption, JsonPipe, NgIf, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule],
-  // providers: [TaskListService, AddTaskService,],
 })
 export class ExpandgroupComponent implements OnInit {
   @Input() collapsee: boolean = false;
@@ -32,7 +45,7 @@ export class ExpandgroupComponent implements OnInit {
   color: string = this.colorlist[2];
   taskid: string = '';
   Status = new Map<string, string>([["bg-green-400", "Done"], ['bg-amber-400', 'Working on it'], ['bg-red-500', 'Stuck'], ['bg-gray-300', 'None']]);
-  
+  selectedAll: any;
 
   editColor(task: Task): void {
     if (this.taskid === '') this.taskid = task.id;
@@ -41,6 +54,11 @@ export class ExpandgroupComponent implements OnInit {
   editColorSuccess(c: string, t: Task): void {
     this.color = c;
     t.status = c;
+    this.save(t);
+  }
+
+  setdate(t: Task): void {
+    t.create_date = (<HTMLInputElement>document.getElementById(t.id+"date")).value;
     this.save(t);
   }
 
@@ -53,6 +71,22 @@ export class ExpandgroupComponent implements OnInit {
     })
   }
 
+  selectAll() {
+    for (var i = 0; i < this.task_list_service.task_list.length; i++) {
+      this.task_list_service.task_list[i].selected = this.selectedAll;
+    }
+  }
+
+  checkIfAllSelected() {
+    this.selectedAll = this.task_list_service.task_list.every(function(item:any) {
+        return item.selected == true;
+      })
+  }
+
+  onChange(result: Date): void {
+    console.log('onChange: ', result);
+  }
+
   changetocollapse() {
     this.collapseeChange.emit(true);
   }
@@ -60,7 +94,7 @@ export class ExpandgroupComponent implements OnInit {
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.task_list_service.task_list, event.previousIndex, event.currentIndex);
   }
-
+  
   ngOnInit(): void {
     this.task_list_service.getTaskList();
     this.add_task_service.buildForm('');

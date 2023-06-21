@@ -8,14 +8,14 @@ import { TaskService } from '../task-service/task.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AddTaskService implements OnInit{
+export class AddTaskService implements OnInit {
   task_form!: FormGroup;
   task!: Task;
 
   constructor(private formBuilder: FormBuilder, private task_service: TaskService, private task_list_service: TaskListService) { }
 
   ngOnInit(): void {
-      this.buildForm('');
+    this.buildForm('');
   }
 
   buildForm(name: string | null) {
@@ -27,11 +27,12 @@ export class AddTaskService implements OnInit{
       create_by: '',
       create_date: '',
       status: '',
+      selected: false
     });
 
     let temp = new Date;
 
-    const task: Task = {id: "", name: "" , person: "None", child_task: [], create_by: "None", create_date: temp.toLocaleDateString("Vi") , status: "bg-gray-300"};
+    const task: Task = { id: "", name: "", person: "None", child_task: [], create_by: "None", create_date: temp.toLocaleDateString("en-CA"), status: "bg-gray-300", selected: false };
 
     if (name) {
       task.name = name;
@@ -54,11 +55,12 @@ export class AddTaskService implements OnInit{
       create_by: this.task.create_by,
       create_date: this.task.create_date,
       status: this.task.status,
+      selected: this.task.selected
     });
   }
 
   saveTask() {
-    const t: Task = {...this.task, ...this.task_form.value};
+    const t: Task = { ...this.task, ...this.task_form.value };
     this.task_service.createTask(t).subscribe({
       error: () => {
         console.log("Thêm thành công");

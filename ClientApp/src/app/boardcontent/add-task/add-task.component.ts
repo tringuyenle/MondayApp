@@ -28,6 +28,7 @@ export class AddTaskComponent implements OnInit, OnDestroy {
         create_by: '',
         create_date: '',
         status: '',
+        selected: false
       });
 
       this.sub = this.route.paramMap.subscribe(param => {
@@ -43,7 +44,7 @@ export class AddTaskComponent implements OnInit, OnDestroy {
         // else {
         //   this.getTask(id);
         // }
-        const task: Task = {id: "0", name: new_name , person: "", child_task: [], create_by: "", create_date: "", status: "",};
+        const task: Task = {id: "0", name: new_name , person: "", child_task: [], create_by: "", create_date: "", status: "", selected: false};
         this.displayTask(task);
         this.saveTask();
       });

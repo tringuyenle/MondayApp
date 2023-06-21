@@ -15,9 +15,20 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { CollapsegroupComponent } from './group/collapsegroup/collapsegroup.component';
 import { ExpandgroupComponent } from './group/expandgroup/expandgroup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
 
 import { AddTaskComponent } from './boardcontent/add-task/add-task.component';
 import { TaskRoutingModule } from './task-routing.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import {MatTreeModule} from '@angular/material/tree';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -40,6 +51,13 @@ import { TaskRoutingModule } from './task-routing.module';
     TaskRoutingModule,
     ReactiveFormsModule,
     RouterModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatTreeModule,
+    MatIconModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
