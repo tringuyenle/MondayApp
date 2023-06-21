@@ -56,6 +56,7 @@ export class ExpandgroupComponent implements OnInit {
   }
   editColorSuccess(c: string, t: Task): void {
     this.color = c;
+    t.status = c;
     this.save(t);
   }
 
