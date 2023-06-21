@@ -1,23 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Inject,
-  OnDestroy,
-} from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCalendar} from '@angular/material/datepicker';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
 import {CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray} from '@angular/cdk/drag-drop';
 import {CdkListbox, CdkOption} from '@angular/cdk/listbox';
 import {NgFor, JsonPipe} from '@angular/common';
-import { FormBuilder, FormGroup, FormsModule, FormControlName, FormControl } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TaskListService } from 'src/services/task-list-service/task-list.service';
 import { AddTaskService } from 'src/services/add-task-service/add-task.service';
-import { RouterModule } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { EditTaskService } from 'src/services/edit-task-service/edit-task.service';
 
@@ -50,6 +38,11 @@ export class ExpandgroupComponent implements OnInit {
   //check selected Person Column
   personid: string = '';
   personlist: string[] = ['Thành', 'Quân', 'Nguyên'];
+  person: string = '';
+
+  addPerson(): void {
+    this.personlist.push(this.person);
+  }
 
   editColor(task: Task): void {
     if (this.taskid === '') this.taskid = task.id;
@@ -63,12 +56,19 @@ export class ExpandgroupComponent implements OnInit {
 
   editPerson(task: Task): void {
     if (this.personid === '') this.personid = task.id;
+    else if (this.personid == 'add') this.personid = task.id;
     else this.personid = '';
   }
+
+  clickInputAddPerson(task: Task): void {
+    this.personid = 'add';
+  }
+
   editPersonSuccess(p: string, t: Task): void {
     t.create_by = p;
+    this.save(t);
   }
-  
+
   setdate(t: Task): void {
     t.create_date = (<HTMLInputElement>document.getElementById(t.id+"date")).value;
     this.save(t);
