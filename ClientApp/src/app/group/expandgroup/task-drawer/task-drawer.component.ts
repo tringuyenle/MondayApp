@@ -6,9 +6,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./task-drawer.component.css']
 })
 export class TaskDrawerComponent {
+  @Input() name: string = '';
   @Input() isOpen = false;
   @Output() closed = new EventEmitter();
-  close() {
+  closeDrawer() {
     this.closed.emit();
   }
 }

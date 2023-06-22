@@ -99,7 +99,7 @@
                                     <ng-template #displayCell>{{ task.name }}</ng-template>
                                 </span>
                             </div>
-                            <button class="flex items-center border border-gray-300 p-1 mb-1 mr-2 rounded">
+                            <button (click)="isDrawerOpen=true" (click)="tempTaskName=task.name" class="flex items-center border border-gray-300 p-1 mb-1 mr-2 rounded">
                                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" height="1em"
                                     viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                                     <path
@@ -108,10 +108,10 @@
                                 <span>
                                     Open
                                 </span>
-                                
                             </button>
                         </div>
                         <!-- Person column -->
+                        <app-task-drawer [name]="tempTaskName" [isOpen]="isDrawerOpen" (closed)="isDrawerOpen = false"></app-task-drawer>
                         <button (click)="editPerson(task)"
                             class="relative text-black w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200">
                             <ng-container *ngIf="personid == task.id;">
@@ -187,3 +187,7 @@
         </div>
     </div>
 </div>
+
+
+
+

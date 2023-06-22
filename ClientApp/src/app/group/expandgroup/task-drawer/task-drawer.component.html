@@ -1,11 +1,11 @@
-<div class="drawer-container bg-blue-500 h-1/3" [style.right.px]="isOpen ? 0 : -500">
-    <button class="close" (click)="close()">X</button>
+<div class="drawer-container bg-blue-300 h-full rounded border-l-1 border-gray-200" [style.right.px]="isOpen ? 0 : -700">
+    <button class="close rounded-full bg-white mt-2 ml-2 py-2 px-3 text-xl text-center font-semibold" (click)="closeDrawer()">x</button>
     <div class="header">
-      <h5>Responses</h5>
+      <span class="text-2xl font-bold p-1">Nội dung task {{name}}</span>
     </div>
-    <div class="body">
+    <div class="body bg-white mt-2 pt-2 pl-2">
       <p>
-        Loved the article
+        Bạn đang xem chi tiết của: {{name}}
       </p>
     </div>
   </div>

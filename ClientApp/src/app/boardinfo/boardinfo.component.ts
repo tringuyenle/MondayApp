@@ -13,8 +13,6 @@ import { TaskListService } from 'src/services/task-list-service/task-list.servic
 export class BoardinfoComponent {
   constructor(public add_task_service: AddTaskService, private task_list_service: TaskListService) {}
 
-  isDrawerOpen: boolean = true;
-
   add() {
     this.add_task_service.buildForm("New Task");
     this.add_task_service.saveTask();

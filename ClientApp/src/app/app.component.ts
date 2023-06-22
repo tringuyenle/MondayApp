@@ -39,36 +39,4 @@ const TREE_DATA: FoodNode[] = [
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  displayedColumns: string[] = ['name', 'level'];
-
-  private _transformer = (node: FoodNode, level: number) => {
-    return {
-      expandable: !!node.children && node.children.length > 0,
-      name: node.name,
-      level: level,
-    };
-  };
-
-  constructor(){
-    this.dataSource.data = TREE_DATA;
-  }
-
-  treeControl = new FlatTreeControl<ExampleFlatNode>(
-    node=>node.level,
-    node=>node.expandable
-  );
-
-  treeFlattener = new MatTreeFlattener(
-    this._transformer,
-    node=>node.level,
-    node=>node.expandable,
-    node=>node.children
-  );
-
-  dataSource= new MatTreeFlatDataSource(
-    this.treeControl, this.treeFlattener 
-  );
-
-  hasChild = (_: number, 
-    node: ExampleFlatNode) => node.expandable;
 }
