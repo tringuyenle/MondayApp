@@ -1,12 +1,23 @@
 <div class="flex flex-col w-full bg-indigo-50 h-screen sticky top-0">
   <app-header class="sticky top-0 bg-indigo-50"></app-header>
   <div class="h-screen w-full flex">
-    <div class="bg-white w-1/4 rounded-r-lg mr-3">
-      <app-sidebar></app-sidebar>
-    </div>
+    <mat-sidenav-container class="example-container bg-white rounded-r-lg mr-3">
+      <mat-sidenav #sidenav mode="side" class="w-72">
+        <app-sidebar></app-sidebar>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <div>
+          <div>
+              <button mat-button (click)="sidenav.toggle()" class=" hover:bg-slate-300 rounded-tr-lg rounded-bl-lg bg-slate-50">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 320 512"><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>              </button>
+          </div>
+      </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
     <div class="w-full bg-white h-full rounded-l-lg">
       <app-boardinfo></app-boardinfo>
       <app-boardcontent></app-boardcontent>
     </div>
   </div>
 </div>
+
