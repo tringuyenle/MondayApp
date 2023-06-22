@@ -111,7 +111,6 @@
                             </button>
                         </div>
                         <!-- Person column -->
-                        <app-task-drawer [name]="tempTaskName" [isOpen]="isDrawerOpen" (closed)="isDrawerOpen = false"></app-task-drawer>
                         <button (click)="editPerson(task)"
                             class="relative text-black w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200">
                             <ng-container *ngIf="personid == task.id;">
@@ -185,6 +184,7 @@
                 </div>
             </div>
         </div>
+        <app-task-drawer [name]="tempTaskName" [isOpen]="isDrawerOpen" (closed)="isDrawerOpen = false"></app-task-drawer>
     </div>
 </div>
 
