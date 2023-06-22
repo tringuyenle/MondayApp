@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MondayApp.Model;
 using MondayApp.Services;
-using System.Runtime.InteropServices;
 
 namespace MondayApp.Controllers
 {
@@ -63,6 +62,5 @@ namespace MondayApp.Controllers
 
             return Ok("Xóa thành công");
         }
-
     }
 }

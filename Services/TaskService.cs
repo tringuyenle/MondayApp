@@ -1,6 +1,4 @@
-﻿
-using Amazon.Runtime.Internal;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using MondayApp.Model;
 using MongoDB.Driver;
 

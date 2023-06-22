@@ -66,8 +66,8 @@
         </div>
     </div>
     <div cdkDropList (cdkDropListDropped)="drop($event)">
-
         <div *ngFor="let task of task_list_service.task_list" cdkDrag class="hover:bg-slate-100 group">
+            <!-- Delete button -->
             <div class="pl-2 h-8 absolute left-px flex items-end">
                 <button class="p-1 hover:bg-slate-300 rounded-md" (click)="task_list_service.deleteTask(task)">
                     <div class=" group-hover:fill-currentColor">
@@ -81,21 +81,37 @@
             <div class="flex flex-col p-1 py-0">
                 <div class="flex flex-col border-solid border-l-blue-500 border-gray-200 border-t-2 border-l-8">
                     <div class="flex items-center">
+                        <!-- Checkbox column -->
                         <div class="p-2 border-r-2 border-solid border-gray-200">
                             <input type="checkbox" [(ngModel)]="task.selected" (change)="checkIfAllSelected();"
                                 class="border-gray-200">
                         </div>
-                        <div (click)="edit_task_service.editCell(task)" (keyup.enter)="edit_task_service.saveCell(task)"
-                            class="w-1/3 flex pl-8 py-2 border-r-2 border-solid border-gray-200">
-                            <span>
-                                <ng-container *ngIf="edit_task_service.edit_task_id === task.id; else displayCell">
-                                    <input
-                                        class="w-full py-0 placeholder:text-sm px-0 border-y-white border-x-white group-hover:border-gray-300 rounded-md"
-                                        type="text" [(ngModel)]="task.name">
-                                </ng-container>
-                                <ng-template #displayCell>{{ task.name }}</ng-template>
-                            </span>
+                        <!-- Name column -->
+                        <div class="w-1/3 justify-between flex pl-4 pt-1 border-r-2 border-solid border-gray-200 group">
+                            <div (click)="edit_task_service.editCell(task)"
+                                (keyup.enter)="edit_task_service.saveCell(task)" class="mt-1">
+                                <span class="flex">
+                                    <ng-container *ngIf="edit_task_service.edit_task_id === task.id; else displayCell">
+                                        <input
+                                            class="w-full py-0 placeholder:text-sm px-0 border-y-white border-x-white group-hover:border-gray-300 rounded-md"
+                                            type="text" [(ngModel)]="task.name">
+                                    </ng-container>
+                                    <ng-template #displayCell>{{ task.name }}</ng-template>
+                                </span>
+                            </div>
+                            <button (click)="isDrawerOpen=true" (click)="tempTaskName=task.name" class="flex items-center border border-gray-300 p-1 mb-1 mr-2 rounded">
+                                <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" height="1em"
+                                    viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path
+                                        d="M344 0H488c13.3 0 24 10.7 24 24V168c0 9.7-5.8 18.5-14.8 22.2s-19.3 1.7-26.2-5.2l-39-39-87 87c-9.4 9.4-24.6 9.4-33.9 0l-32-32c-9.4-9.4-9.4-24.6 0-33.9l87-87L327 41c-6.9-6.9-8.9-17.2-5.2-26.2S334.3 0 344 0zM168 512H24c-13.3 0-24-10.7-24-24V344c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2l39 39 87-87c9.4-9.4 24.6-9.4 33.9 0l32 32c9.4 9.4 9.4 24.6 0 33.9l-87 87 39 39c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8z" />
+                                </svg>
+                                <span>
+                                    Open
+                                </span>
+                            </button>
                         </div>
+                        <!-- Person column -->
+                        <app-task-drawer [name]="tempTaskName" [isOpen]="isDrawerOpen" (closed)="isDrawerOpen = false"></app-task-drawer>
                         <button (click)="editPerson(task)"
                             class="relative text-black w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200">
                             <ng-container *ngIf="personid == task.id;">
@@ -105,12 +121,14 @@
                                         {{p}}
                                     </button>
                                     <div (click)="clickInputAddPerson(task)">
-                                        <input type="text" [(ngModel)]="person" (keyup.enter)="addPerson()" placeholder="Add Person" class="rounded border-gray-300">
+                                        <input type="text" [(ngModel)]="person" (keyup.enter)="addPerson()"
+                                            placeholder="Add Person" class="rounded border-gray-300">
                                     </div>
                                 </div>
                             </ng-container>
                             {{task.create_by}}
                         </button>
+                        <!-- Status column -->
                         <button (click)="editColor(task)"
                             class="relative text-white w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200 {{task.status}}">
                             <ng-container *ngIf="taskid == task.id;">
@@ -169,3 +187,7 @@
         </div>
     </div>
 </div>
+
+
+
+

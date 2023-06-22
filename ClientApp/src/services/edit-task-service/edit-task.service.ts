@@ -15,12 +15,12 @@ export class EditTaskService {
     this.edit_task_id = task.id;
    }
  
-   saveCell(task: Task): void {
-     this.task_service.updateTask(task).subscribe({
-       error: () => {
-         this.edit_task_id = '';
-         console.log("Chỉnh sửa thành công");
-       }
-     })
-   }
+  saveCell(task: Task): void {
+    this.task_service.updateTask(task).subscribe({
+      error: () => {
+        this.edit_task_id = '';
+        console.log("Chỉnh sửa thành công");
+      }
+    })
+  }
 }

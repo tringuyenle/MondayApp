@@ -27,6 +27,7 @@ import en from '@angular/common/locales/en';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { TaskDrawerComponent } from './group/expandgroup/task-drawer/task-drawer.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -48,6 +49,7 @@ registerLocaleData(en);
     TaskListComponent,
     CollapsegroupComponent,
     AddTaskComponent,
+    TaskDrawerComponent,
     ExpandgroupComponent,
   ],
   imports: [

@@ -44,7 +44,7 @@ export class AddTaskComponent implements OnInit, OnDestroy {
         // else {
         //   this.getTask(id);
         // }
-        const task: Task = {id: "0", name: new_name , person: "", child_task: [], create_by: "", create_date: "", status: "", selected: false};
+        const task: Task = {id: "0", name: new_name , parent_task: "", child_task: [], create_by: "", create_date: "", status: "", selected: false};
         this.displayTask(task);
         this.saveTask();
       });
@@ -60,7 +60,7 @@ export class AddTaskComponent implements OnInit, OnDestroy {
     this.task_form.patchValue({
       id: this.task.id,
       name: this.task.name,
-      parent_task: this.task.person,
+      parent_task: this.task.parent_task,
       child_task: this.task.child_task,
       create_by: this.task.create_by,
       create_date: this.task.create_date,

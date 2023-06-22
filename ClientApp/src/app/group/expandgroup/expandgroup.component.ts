@@ -15,6 +15,9 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 export class ExpandgroupComponent implements OnInit {
   @Input() collapsee: boolean = false;
   @Output() collapseeChange = new EventEmitter<boolean>();
+  
+  isDrawerOpen: boolean = false;
+  tempTaskName: string = '';
 
   colorlist: string[] = ['bg-green-400', 'bg-amber-400', 'bg-red-500', 'bg-gray-300'];
   color: string = this.colorlist[2];
@@ -86,15 +89,21 @@ export class ExpandgroupComponent implements OnInit {
     this.collapseeChange.emit(true);
   }
 
+  // clickToOpenDrawer(){
+  //   this.isDrawerOpen.emit(true);
+  // }
+
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.task_list_service.task_list, event.previousIndex, event.currentIndex);
   }
   
   ngOnInit(): void {
     this.task_list_service.getTaskList();
-    this.add_task_service.buildForm('');
+    this.add_task_service.buildForm('','');
   }
 
   constructor(public task_list_service: TaskListService, public add_task_service: AddTaskService, public edit_task_service: EditTaskService, private task_service: TaskService) {}
+
+
 }
 

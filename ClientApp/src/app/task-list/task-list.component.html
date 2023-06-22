@@ -13,27 +13,58 @@
 
     <tbody class="bg-white divide-y divide-gray-200">
         <tr *ngFor="let task of task_list">
+            <td class="p-2"> {{task.id}}  </td>
+            <td> {{task.name}} </td>
+            <td> {{task.create_by}} </td>
+            <td> {{task.create_date}} </td>
+            <td> {{task.status}}</td>
+            <td> 
+                <button class="p-2 bg-cyan-500 rounded-full" (click)="deleteTask(task)">
+                    Delete
+                </button>
+            </td>
+
+            <td>
+                <button (click)="getSubTaskList(task.id)">
+                    SubTask
+                </button>
+            </td>
+
+            <td>
+                <div class="w-full">
+                    <form [formGroup]="add_task.task_form">
+                        <input
+                            class="w-full py-0 placeholder:text-sm pl-5 border-y-white border-x-white group-hover:border-gray-300 rounded-md"
+                            (keyup.enter)="add_task.saveSubTask(task.id)" (click)="add_task.buildForm('',task.id)"  type="text" formControlName="name"
+                            placeholder="+ Add Sub Task">
+                    </form>
+                </div>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table class="table-auto">
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Create By</th>
+        <th>Create Date</th>
+        <th>Status</th>
+
+    </thead>
+
+    <tbody class="bg-white divide-y divide-gray-200">
+        <tr *ngFor="let task of sub_task_list_service.sub_task_list">
             <td class="py-4 px-6"> {{task.id}}  </td>
             <td class="py-4 px-6"> {{task.name}} </td>
             <td class="py-4 px-6"> {{task.create_by}} </td>
             <td class="py-4 px-6"> {{task.create_date}} </td>
             <td class="py-4 px-6"> {{task.status}}</td>
-            <td class="py-4 px-6"> 
-                <button class="p-2 bg-cyan-500 rounded-full" (click)="deleteTask(task)">
-                    Delete
-                </button>
-            </td>
-            <td>
-                <button [routerLink]="['/task', task.id, 'edit']">
-                    Edit
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <button [routerLink]="['/task/0/edit']">
-                Add
-            </button>
         </tr>
     </tbody>
-</table>  
+</table>
+
+
