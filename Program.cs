@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("MondayDatabaseSettings"));
 builder.Services.AddSingleton<TaskService>();
+builder.Services.AddSingleton<SubTaskServices>();
 // Add services to the container.
 
 builder.Services.AddControllers();

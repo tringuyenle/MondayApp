@@ -86,8 +86,8 @@
                                 class="border-gray-200">
                         </div>
                         <div (click)="edit_task_service.editCell(task)" (keyup.enter)="edit_task_service.saveCell(task)"
-                            class="w-1/3 flex pl-8 py-2 border-r-2 border-solid border-gray-200">
-                            <span>
+                            class="w-1/3 flex pl-8 py-2 border-r-2 border-solid border-gray-200 overflow-hidden">
+                            <span >
                                 <ng-container *ngIf="edit_task_service.edit_task_id === task.id; else displayCell">
                                     <input
                                         class="w-full py-0 placeholder:text-sm px-0 border-y-white border-x-white group-hover:border-gray-300 rounded-md"

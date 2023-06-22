@@ -1,6 +1,10 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { TaskService } from 'src/services/task-service/task.service';
 import { Task } from 'src/app/task';
+import { SubTaskListService } from 'src/services/sub-task-list-service/sub-task-list.service';
+import { SubTaskService } from 'src/services/sub-task-service/sub-task.service';
+import { AddTaskService } from 'src/services/add-task-service/add-task.service';
+import { EditTaskService } from 'src/services/edit-task-service/edit-task.service';
 
 @Component({
   selector: 'app-task-list',
@@ -15,7 +19,8 @@ export class TaskListComponent implements OnInit{
     this.getTaskList();
   }
 
-  constructor(private task_service: TaskService) {}
+  constructor(private task_service: TaskService, public sub_task_list_service: SubTaskListService, 
+              public add_task: AddTaskService, public edit_task: EditTaskService) {}
 
   getTaskList(): void {
     this.task_service.getTaskList().subscribe( data =>{
@@ -35,8 +40,13 @@ export class TaskListComponent implements OnInit{
     this.getTaskList();
   }
 
+  getSubTaskList(parent_id: string) {
+    this.sub_task_list_service.getSubTaskList(parent_id);
+  }
+
+
+
+
 }
-function output() {
-  throw new Error('Function not implemented.');
-}
+
 
