@@ -28,6 +28,10 @@ import {MatTreeModule} from '@angular/material/tree';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 
+import {CdkDropList, CdkDrag } from '@angular/cdk/drag-drop';
+import {CdkListbox, CdkOption} from '@angular/cdk/listbox';
+import {NgFor, NgIf, JsonPipe} from '@angular/common';
+
 registerLocaleData(en);
 
 @NgModule({
@@ -41,13 +45,13 @@ registerLocaleData(en);
     TaskListComponent,
     CollapsegroupComponent,
     AddTaskComponent,
+    ExpandgroupComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    ExpandgroupComponent,
     TaskRoutingModule,
     ReactiveFormsModule,
     RouterModule,
@@ -57,7 +61,8 @@ registerLocaleData(en);
     MatNativeDateModule,
     MatTreeModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    CdkDropList, NgFor, CdkDrag, FormsModule, ReactiveFormsModule, CdkListbox, CdkOption, JsonPipe, NgIf, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule
   ],
   bootstrap: [AppComponent]
 })
