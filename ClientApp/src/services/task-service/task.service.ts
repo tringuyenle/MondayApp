@@ -24,7 +24,10 @@ export class TaskService {
   }
 
   createTask(new_task: Task): Observable<Task> {
-    new_task.id = "";
+    new_task.id = '';
+    // new_task.child_task = [];
+    // new_task.parent_task = '';
+
 
     return this.http_client.post<Task>(this.task_url, new_task);
   }

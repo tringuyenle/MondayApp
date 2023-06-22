@@ -99,9 +99,11 @@ export class ExpandgroupComponent implements OnInit {
   
   ngOnInit(): void {
     this.task_list_service.getTaskList();
-    this.add_task_service.buildForm('');
+    this.add_task_service.buildForm('','');
   }
 
   constructor(public task_list_service: TaskListService, public add_task_service: AddTaskService, public edit_task_service: EditTaskService, private task_service: TaskService) {}
+
+
 }
 

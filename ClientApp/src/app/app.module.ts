@@ -28,6 +28,9 @@ import {MatTreeModule} from '@angular/material/tree';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { TaskDrawerComponent } from './group/expandgroup/task-drawer/task-drawer.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 import {CdkDropList, CdkDrag } from '@angular/cdk/drag-drop';
 import {CdkListbox, CdkOption} from '@angular/cdk/listbox';
@@ -64,7 +67,8 @@ registerLocaleData(en);
     MatTreeModule,
     MatIconModule,
     MatTableModule,
-    CdkDropList, NgFor, CdkDrag, FormsModule, ReactiveFormsModule, CdkListbox, CdkOption, JsonPipe, NgIf, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule
+    CdkDropList, NgFor, CdkDrag, FormsModule, ReactiveFormsModule, CdkListbox, CdkOption, JsonPipe, NgIf, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule,
+    MatSidenavModule, MatCheckboxModule, FormsModule, MatButtonModule,
   ],
   bootstrap: [AppComponent]
 })
