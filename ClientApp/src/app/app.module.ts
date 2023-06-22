@@ -27,6 +27,7 @@ import en from '@angular/common/locales/en';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { TaskDrawerComponent } from './group/expandgroup/task-drawer/task-drawer.component';
 
 registerLocaleData(en);
 
@@ -41,6 +42,7 @@ registerLocaleData(en);
     TaskListComponent,
     CollapsegroupComponent,
     AddTaskComponent,
+    TaskDrawerComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
