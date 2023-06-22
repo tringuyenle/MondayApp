@@ -1,28 +1,16 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray} from '@angular/cdk/drag-drop';
-import {CdkListbox, CdkOption} from '@angular/cdk/listbox';
-import {NgFor, JsonPipe} from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
 import { TaskListService } from 'src/services/task-list-service/task-list.service';
 import { AddTaskService } from 'src/services/add-task-service/add-task.service';
-import { NgIf } from '@angular/common';
 import { EditTaskService } from 'src/services/edit-task-service/edit-task.service';
-
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatNativeDateModule} from '@angular/material/core';
 import { Task } from 'src/app/task';
 import { TaskService } from 'src/services/task-service/task.service';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-expandgroup',
   templateUrl: './expandgroup.component.html',
   styleUrls: ['./expandgroup.component.css'],
-  standalone: true,
   providers: [TaskListService, AddTaskService],
-  imports: [CdkDropList, NgFor, CdkDrag, FormsModule, ReactiveFormsModule, CdkListbox, CdkOption, JsonPipe, NgIf, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule],
 })
 export class ExpandgroupComponent implements OnInit {
   @Input() collapsee: boolean = false;
@@ -75,7 +63,7 @@ export class ExpandgroupComponent implements OnInit {
   }
 
   save(task: Task) {
-    this.edit_task_service.saveCell(task);
+    this.edit_task_service.saveCell(task)
   }
 
   selectAll() {
