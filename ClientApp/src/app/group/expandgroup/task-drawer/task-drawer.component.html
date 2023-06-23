@@ -1,11 +1,31 @@
-<div class="drawer-container bg-blue-300 h-full rounded border-l-1 border-gray-200 z-10" [style.right.px]="isOpen ? 0 : -800">
-    <button class="close rounded-full bg-white mt-2 ml-2 py-2 px-3 text-xl text-center font-semibold" (click)="closeDrawer()">x</button>
-    <div class="header">
-      <span class="text-2xl font-bold p-1">Nội dung task {{name}}</span>
-    </div>
-    <div class="body bg-white mt-2 pt-2 pl-2">
-      <p>
-        Bạn đang xem chi tiết của: {{name}}
-      </p>
+<div class="drawer-container bg-white h-full rounded border-l-3 border-gray-200 shadow-xl relative"
+  [style.right.px]="isOpen ? 0 : -800">
+  <button class="close rounded-lg mt-2 ml-2 py-2 px-3 text-xl text-center font-semibold hover:bg-gray-300"
+    (click)="closeDrawer()">x</button>
+  <div class="header pl-5">
+    <span class="text-2xl font-bold">Nội dung task {{name}}</span>
+  </div>
+  <div class="body bg-white mt-2 pt-2 pl-5">
+    <p>
+      Bạn đang xem chi tiết của: {{name}}
+    </p> <br>
+    <p>
+      Phụ trách: {{person}}
+    </p> <br>
+  </div>
+  <div class="px-4">
+    <input type="text" class="border-blue-400 rounded w-full border-2" placeholder="Write an update...">
+  </div>
+  <div class="flex justify-end">
+    <span class="text-sm text-gray-500 pr-4">Write updates via email:</span>
+  </div>
+  <div class="absolute inset-x-0 bottom-20">
+    <div class="flex items-center justify-center"><img class="justify-self-center object-cover h-48 w-96"
+        src="https://cdn.monday.com/images/pulse-page-empty-state.svg"></div>
+    <div class="post_not_found_text">
+      <h2 class="text-center font-semibold text-2xl p-2 mt-2"> No updates yet for this item</h2>
+      <p class="text-center font-md p-1">Be the first one to update about progress, mention someone <br> or upload files
+        to share with your team members</p>
     </div>
   </div>
+</div>

@@ -18,6 +18,7 @@ export class ExpandgroupComponent implements OnInit {
   
   isDrawerOpen: boolean = false;
   tempTaskName: string = '';
+  tempPerson: string = '';
 
   colorlist: string[] = ['bg-green-400', 'bg-amber-400', 'bg-red-500', 'bg-gray-300'];
   color: string = this.colorlist[2];
