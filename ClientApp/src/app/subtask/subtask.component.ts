@@ -4,6 +4,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Task } from '../task';
 import { NgFor, NgIf } from '@angular/common';
 import { AddTaskService } from 'src/services/add-task-service/add-task.service';
+import { EditSubTaskService } from 'src/services/edit-sub-task-service/edit-sub-task.service';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class SubtaskComponent implements OnInit{
   }
 
   save(task: Task) {
-    // this.edit_task_service.saveCell(task)
+    this.edit_sub_task_service.saveCell(task)
   }
 
   setdate(t: Task): void {
@@ -59,5 +60,6 @@ export class SubtaskComponent implements OnInit{
   }
 
 
-  constructor(public sub_task_list_service: SubTaskListService, public add_task_service: AddTaskService) {};
+  constructor(public sub_task_list_service: SubTaskListService, public add_task_service: AddTaskService,
+              public edit_sub_task_service: EditSubTaskService) {};
 }
