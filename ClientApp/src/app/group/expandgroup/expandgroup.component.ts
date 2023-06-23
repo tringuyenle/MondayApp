@@ -18,6 +18,9 @@ export class ExpandgroupComponent implements OnInit {
   
   isDrawerOpen: boolean = false;
   tempTaskName: string = '';
+  tempPerson: string = '';
+
+  id = 0;
 
   suboftaskid: string[] = [];
 

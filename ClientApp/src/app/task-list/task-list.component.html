@@ -63,6 +63,11 @@
             <td class="py-4 px-6"> {{task.create_by}} </td>
             <td class="py-4 px-6"> {{task.create_date}} </td>
             <td class="py-4 px-6"> {{task.status}}</td>
+            <td>
+                <button (click)="sub_task_list_service.deleteSubTask(task.id, task.parent_task)">
+                    Delete Subtask
+                </button>
+            </td>
         </tr>
     </tbody>
 </table>

@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class TaskDrawerComponent {
   @Input() name: string = '';
+  @Input() person: string = '';
   @Input() isOpen = false;
   @Output() closed = new EventEmitter();
   closeDrawer() {

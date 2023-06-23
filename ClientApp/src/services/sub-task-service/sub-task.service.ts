@@ -24,5 +24,12 @@ export class SubTaskService {
     return this.http_client.post<Task>(this.url, new_task);
   }
 
+  //if flag is true, httpDelete one subtask, id -> id of subtask
+  //else httpDelete all subtask have same parent task, id -> id of parent task
+  deleteSubTask(id: string, flag: boolean): Observable<Task> {
+    let temp = this.url + `/${id}` + `?flag=${flag}`;
+    return this.http_client.delete<Task>(temp);
+  }
+
   
 }

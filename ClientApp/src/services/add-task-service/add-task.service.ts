@@ -20,9 +20,13 @@ export class AddTaskService implements OnInit {
 
   ngOnInit(): void {
     this.buildForm('','');
+    console.log("ngOnInit");
   }
 
   buildForm(name: string, parent_id: string ) {
+    console.log('name:' + name);
+    console.log('parent_id' + parent_id);
+
     this.task_form = this.formBuilder.group({
       id: '',
       name: '',
@@ -36,12 +40,15 @@ export class AddTaskService implements OnInit {
 
     let temp = new Date;
 
-    const task: Task = { id: "", name: name, parent_task: parent_id, child_task: [], create_by: "None", create_date: temp.toLocaleDateString("en-CA"), status: "bg-gray-300", selected: false };
+    const task: Task = { id: "", name: name, parent_task: parent_id, child_task: [], create_by: "", create_date: temp.toLocaleDateString("en-CA"), status: "bg-gray-300", selected: false };
 
     this.displayTask(task);
   }
 
   displayTask(task: Task): void {
+
+    console.log("Display task" + task.name);
+
     if (this.task_form) {
       this.task_form.reset();
     }
@@ -77,18 +84,20 @@ export class AddTaskService implements OnInit {
       error: (err) => {
         console.log("Thêm thành công");
         this.sub_task_list_service.getSubTaskList(parent_id);
+        // this.task_form.reset();
         this.onSaveCompleteSubTask(parent_id);
       }
     });
   }
 
   onSaveComplete(): void {
-    this.task_form.reset();
+    // this.task_form.reset();
     this.buildForm('','');
   }
 
   onSaveCompleteSubTask(parent_id: string) {
     this.task_form.reset();
     this.buildForm('',parent_id);
+    console.log("Reset Form");
   }
 }
