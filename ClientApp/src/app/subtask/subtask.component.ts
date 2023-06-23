@@ -3,6 +3,7 @@ import { SubTaskListService } from 'src/services/sub-task-list-service/sub-task-
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Task } from '../task';
 import { NgFor, NgIf } from '@angular/common';
+import { AddTaskService } from 'src/services/add-task-service/add-task.service';
 
 
 @Component({
@@ -33,14 +34,6 @@ export class SubtaskComponent implements OnInit{
       })
   }
 
-  // setdate(t: Task): void {
-  //   t.create_date = (<HTMLInputElement>document.getElementById(t.id+"date")).value;
-  //   this.save(t);
-  // }
 
-  // save(task: Task) {
-  //   this.edit_task_service.saveCell(task)
-  // }
-
-  constructor(public sub_task_list_service: SubTaskListService) {};
+  constructor(public sub_task_list_service: SubTaskListService, public add_task_service: AddTaskService) {};
 }

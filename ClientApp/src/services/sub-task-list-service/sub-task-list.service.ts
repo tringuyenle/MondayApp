@@ -13,7 +13,7 @@ export class SubTaskListService implements OnInit{
       this.getSubTaskList();
   }
 
-  constructor(private sub_task_service: SubTaskService ) { }
+  constructor(private sub_task_service: SubTaskService) { }
 
   // getSubTaskList(parent_id: string) {
   //   this.sub_task_service.getSubTaskList(parent_id).subscribe( data => {
@@ -27,9 +27,13 @@ export class SubTaskListService implements OnInit{
     })
   }
 
-  deleteSubTask(id: string, parent_id: string) {
-    this.sub_task_service.deleteSubTask(id, true).subscribe({
-      error: () => this.getSubTaskList()
-    })
+  deleteSubTask(task: Task) {
+    if(confirm(`Are you sure to delete ${task.name}?`)) {
+      this.sub_task_service.deleteSubTask(task.id, true).subscribe({
+        error: () => this.getSubTaskList()
+      })
+    }
   }
+
+  
 }
