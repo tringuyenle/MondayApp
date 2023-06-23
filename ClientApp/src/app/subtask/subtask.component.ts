@@ -21,6 +21,7 @@ export class SubtaskComponent implements OnInit{
 
   ngOnInit(): void {
       this.sub_task_list_service.getSubTaskList();
+      console.log(this.sub_task_list_service.sub_task_list);
   }
 
   drop(event: CdkDragDrop<string[]>) {

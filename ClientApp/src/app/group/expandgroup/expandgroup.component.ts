@@ -43,7 +43,6 @@ export class ExpandgroupComponent implements OnInit {
     if (!this.suboftaskid.includes(task.id)) 
       this.suboftaskid.push(task.id);
     else this.suboftaskid = this.suboftaskid.filter((id) => id !== task.id);
-    console.log(this.suboftaskid);
   }
 
   editColor(task: Task): void {
