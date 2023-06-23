@@ -117,6 +117,5 @@ export class ExpandgroupComponent implements OnInit {
   constructor(public task_list_service: TaskListService, public add_task_service: AddTaskService, 
     public edit_task_service: EditTaskService, private task_service: TaskService) {}
 
-
 }
 
