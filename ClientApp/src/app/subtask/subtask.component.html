@@ -34,7 +34,7 @@
         <div *ngFor="let subtask of sub_task_list_service.sub_task_list" cdkDrag class="flex flex-col">  
             <!-- Delete button -->
             <div  *ngIf="subtask.parent_task == parent_id" class="w-full hover:bg-slate-100 group ">
-                <div class="pl-2 h-8 absolute left-12 flex items-end">
+                <div class="pl-2 h-8 absolute left-10 flex items-end">
                     <button class="p-1 hover:bg-slate-300 rounded-md" (click)="sub_task_list_service.deleteSubTask(subtask)" >
                         <div class="group-hover:fill-currentColor">
                             <svg xmlns="http://www.w3.org/2000/svg" height="1.2em" viewBox="0 0 448 512">
@@ -61,17 +61,17 @@
                                                 class="w-full py-0 placeholder:text-sm px-0 border-y-white border-x-white group-hover:border-gray-300 rounded-md"
                                                 type="text" [(ngModel)]="subtask.name">
                                         </ng-container>
-                                        <ng-template #displayCell>{{ subtask.name }}</ng-template>
+                                        <ng-template #displayCell class="overflow-hidden">{{ subtask.name }}</ng-template>
                                     </span>
                                 </div>
 
-                            <button (click)="isDrawerOpen=true; tempTaskName=subtask.name; tempPerson=subtask.create_by;"  class="flex items-center border border-gray-300 p-1 mb-1 mr-2 rounded">
-                                <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" height="1em"
+                            <button (click)="isDrawerOpen=true; tempTaskName=subtask.name; tempPerson=subtask.create_by;"  class="flex items-center border border-gray-300 px-1 mr-2 rounded text-gray-800">
+                                <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" height="0.8em"
                                     viewBox="0 0 512 512">
                                     <path
                                         d="M344 0H488c13.3 0 24 10.7 24 24V168c0 9.7-5.8 18.5-14.8 22.2s-19.3 1.7-26.2-5.2l-39-39-87 87c-9.4 9.4-24.6 9.4-33.9 0l-32-32c-9.4-9.4-9.4-24.6 0-33.9l87-87L327 41c-6.9-6.9-8.9-17.2-5.2-26.2S334.3 0 344 0zM168 512H24c-13.3 0-24-10.7-24-24V344c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2l39 39 87-87c9.4-9.4 24.6-9.4 33.9 0l32 32c9.4 9.4 9.4 24.6 0 33.9l-87 87 39 39c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8z" />
                                 </svg>
-                                <span>
+                                <span class="text-sm">
                                     Open
                                 </span>
                             </button>
