@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
 
-                            <button (click)="isDrawerOpen=true; tempTaskName=subtask.name; tempPerson=subtask.create_by;"  class="flex items-center border border-gray-300 p-1 mb-1 mr-2 rounded">
+                            <button (click)="openSubTaskDrawer(subtask.name, subtask.create_by)"  class="flex items-center border border-gray-300 p-1 mb-1 mr-2 rounded">
                                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" height="1em"
                                     viewBox="0 0 512 512">
                                     <path
@@ -155,4 +155,4 @@
         </div>
     </div>
 </div>
-<app-task-drawer [name]="tempTaskName" [person]="tempPerson" [isOpen]="isDrawerOpen" (closed)="isDrawerOpen = false"></app-task-drawer>
+
