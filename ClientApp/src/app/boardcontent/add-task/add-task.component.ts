@@ -37,13 +37,6 @@ export class AddTaskComponent implements OnInit, OnDestroy {
         if (temp) {
           new_name = temp;
         }
-        // if(id == '0') {
-        //   const task: Task = {id: "0", name: "", parent_task: "", child_task: [], create_by: "", create_date: "", status: "",};
-        //   this.displayTask(task);
-        // }
-        // else {
-        //   this.getTask(id);
-        // }
         const task: Task = {id: "0", name: new_name , parent_task: "", child_task: [], create_by: "", create_date: "", status: "", selected: false};
         this.displayTask(task);
         this.saveTask();
