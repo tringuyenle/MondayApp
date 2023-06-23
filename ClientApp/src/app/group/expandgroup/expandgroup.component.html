@@ -111,7 +111,7 @@
                                 </div>
                             <button (click)="isDrawerOpen=true; tempTaskName=task.name; tempPerson=task.create_by;"  class="flex items-center border border-gray-300 p-1 mb-1 mr-2 rounded">
                                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" height="1em"
-                                    viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    viewBox="0 0 512 512">
                                     <path
                                         d="M344 0H488c13.3 0 24 10.7 24 24V168c0 9.7-5.8 18.5-14.8 22.2s-19.3 1.7-26.2-5.2l-39-39-87 87c-9.4 9.4-24.6 9.4-33.9 0l-32-32c-9.4-9.4-9.4-24.6 0-33.9l87-87L327 41c-6.9-6.9-8.9-17.2-5.2-26.2S334.3 0 344 0zM168 512H24c-13.3 0-24-10.7-24-24V344c0-9.7 5.8-18.5 14.8-22.2s19.3-1.7 26.2 5.2l39 39 87-87c9.4-9.4 24.6-9.4 33.9 0l32 32c9.4 9.4 9.4 24.6 0 33.9l-87 87 39 39c6.9 6.9 8.9 17.2 5.2 26.2s-12.5 14.8-22.2 14.8z" />
                                 </svg>
@@ -121,16 +121,16 @@
                             </button>
                         </div>
                         <!-- Person column -->
-                        <button (click)="editPerson(task)"
+                        <button (click)="edit_task_service.editPerson(task)"
                             class="relative text-black w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200">
-                            <ng-container *ngIf="personid == task.id;">
+                            <ng-container *ngIf="edit_task_service.personid == task.id;">
                                 <div class="absolute top-10 z-10 h-fit p-4 rounded-md shadow-2xl bg-white">
-                                    <button *ngFor="let p of personlist" (click)="editPersonSuccess(p, task)"
+                                    <button *ngFor="let p of edit_task_service.personlist" (click)="edit_task_service.editPersonSuccess(p, task)"
                                         class="flex justify-center border items-center w-full py-1 px-3 rounded-md mb-1 text-black">
                                         {{p}}
                                     </button>
-                                    <div (click)="clickInputAddPerson(task)">
-                                        <input type="text" [(ngModel)]="person" (keyup.enter)="addPerson()"
+                                    <div (click)="edit_task_service.clickInputAddPerson(task)">
+                                        <input type="text" [(ngModel)]="edit_task_service.person" (keyup.enter)="edit_task_service.addPerson()"
                                             placeholder="Add Person" class="rounded border-gray-300">
                                         </div>
                                     </div>
@@ -138,22 +138,22 @@
                                 {{task.create_by}}
                             </button>
                             <!-- Status column -->
-                            <button (click)="editColor(task)"
+                            <button (click)="edit_task_service.editColor(task)"
                                 class="relative text-white w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200 {{task.status}}">
-                                <ng-container *ngIf="taskid == task.id;">
+                                <ng-container *ngIf="edit_task_service.taskid == task.id;">
                                     <div class="absolute top-10 z-10 h-fit p-4 rounded-md shadow-2xl bg-white">
-                                        <button *ngFor="let c of colorlist" (click)="editColorSuccess(c, task)"
+                                        <button *ngFor="let c of edit_task_service.colorlist" (click)="edit_task_service.editColorSuccess(c, task)"
                                             class="flex justify-center items-center w-full {{c}} py-1 px-2 rounded-md mb-1 text-white">
-                                            {{Status.get(c)}}
+                                            {{edit_task_service.Status.get(c)}}
                                         </button>
                                     </div>
                                 </ng-container>
-                                {{ Status.get(task.status) }}
+                                {{ edit_task_service.Status.get(task.status) }}
                             </button>
                             <div class="w-40 flex justify-center p-1 border-r-2 border-solid border-gray-200">
                                 <input type="date" id="{{task.id}}date"
                                     class="p-0.5 pl-4 border-none border-inherit group-hover:bg-slate-100 hover:border-solid hover:border-gray-300"
-                                    value="{{task.create_date}}" (change)="setdate(task)">
+                                    value="{{task.create_date}}" (change)="edit_task_service.setdate(task)">
                             </div>
                         </div>
                     </div>
