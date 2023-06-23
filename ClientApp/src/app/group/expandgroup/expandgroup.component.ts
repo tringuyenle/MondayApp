@@ -19,6 +19,8 @@ export class ExpandgroupComponent implements OnInit {
   isDrawerOpen: boolean = false;
   tempTaskName: string = '';
 
+  suboftaskid: string[] = [];
+
   colorlist: string[] = ['bg-green-400', 'bg-amber-400', 'bg-red-500', 'bg-gray-300'];
   color: string = this.colorlist[2];
   taskid: string = '';
@@ -33,6 +35,12 @@ export class ExpandgroupComponent implements OnInit {
 
   addPerson(): void {
     this.personlist.push(this.person);
+  }
+  openSubtask(task: Task): void {
+    if (!this.suboftaskid.includes(task.id)) 
+      this.suboftaskid.push(task.id);
+    else this.suboftaskid = this.suboftaskid.filter((id) => id !== task.id);
+    console.log(this.suboftaskid);
   }
 
   editColor(task: Task): void {

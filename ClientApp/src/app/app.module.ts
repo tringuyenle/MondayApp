@@ -35,6 +35,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {CdkDropList, CdkDrag } from '@angular/cdk/drag-drop';
 import {CdkListbox, CdkOption} from '@angular/cdk/listbox';
 import {NgFor, NgIf, JsonPipe} from '@angular/common';
+import { SubtaskComponent } from './subtask/subtask.component';
 
 registerLocaleData(en);
 
@@ -51,6 +52,7 @@ registerLocaleData(en);
     AddTaskComponent,
     TaskDrawerComponent,
     ExpandgroupComponent,
+    SubtaskComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
