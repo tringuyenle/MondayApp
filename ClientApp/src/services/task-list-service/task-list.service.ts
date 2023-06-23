@@ -33,7 +33,7 @@ export class TaskListService implements OnInit {
     if(confirm(`Are you sure to delete this task ${delete_task.name}?`)) {
       this.sub_task_service.deleteSubTask(delete_task.id, false).subscribe({
         error: () => {
-          this.sub_task_list_service.getSubTaskList(delete_task.id);
+          this.sub_task_list_service.getSubTaskList();
         }
       });
       this.task_service.deleteTask(delete_task.id).subscribe({

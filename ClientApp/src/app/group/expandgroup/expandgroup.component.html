@@ -160,7 +160,7 @@
                 </div>
             </div>
             <ng-container *ngIf="suboftaskid.includes(task.id);">
-                <app-subtask ></app-subtask>
+                <app-subtask [parent_id]="task.id"></app-subtask>
             </ng-container>
         </div>
     </div>

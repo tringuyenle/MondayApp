@@ -83,7 +83,7 @@ export class AddTaskService implements OnInit {
     this.sub_task_service.createTask(t).subscribe({
       error: (err) => {
         console.log("Thêm thành công");
-        this.sub_task_list_service.getSubTaskList(parent_id);
+        this.sub_task_list_service.getSubTaskList();
         // this.task_form.reset();
         this.onSaveCompleteSubTask(parent_id);
       }

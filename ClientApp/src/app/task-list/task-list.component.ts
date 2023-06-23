@@ -41,7 +41,7 @@ export class TaskListComponent implements OnInit{
   }
 
   getSubTaskList(parent_id: string) {
-    this.sub_task_list_service.getSubTaskList(parent_id);
+    this.sub_task_list_service.getSubTaskList();
   }
 
 

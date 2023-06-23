@@ -19,6 +19,9 @@ namespace MondayApp.Services
         public async Task<List<Tasks>> get(string parent_id) =>
             await _subTaskCollection.Find(x => x.parent_task == parent_id).ToListAsync();
 
+        public async Task<List<Tasks>> get() =>
+            await _subTaskCollection.Find(_ => true).ToListAsync();
+
         public async Task create(Tasks new_task) =>
             await _subTaskCollection.InsertOneAsync(new_task);
 

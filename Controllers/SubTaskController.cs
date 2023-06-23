@@ -19,6 +19,9 @@ namespace MondayApp.Controllers
             _taskService = taskService;
         }
 
+        [HttpGet]
+        public async Task<List<Tasks>> get() => await _subTaskService.get();
+
         [HttpGet("{parent_id:length(24)}")]
         public async Task<List<Tasks>> get(string parent_id) => await _subTaskService.get(parent_id);
 

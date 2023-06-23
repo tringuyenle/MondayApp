@@ -12,7 +12,11 @@ export class SubTaskService {
 
   constructor(private http_client: HttpClient) {}
 
-  getTaskList(parent_id: string): Observable<Task[]> {
+  getAllSubTask(): Observable<Task[]> {
+    return this.http_client.get<Task[]>(this.url);
+  }
+
+  getSubTaskList(parent_id: string): Observable<Task[]> {
     let temp = this.url + `/${parent_id}`;
 
     return this.http_client.get<Task[]>(temp);
