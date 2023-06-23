@@ -20,6 +20,8 @@ export class ExpandgroupComponent implements OnInit {
   tempTaskName: string = '';
   tempPerson: string = '';
 
+  id = 0;
+
   colorlist: string[] = ['bg-green-400', 'bg-amber-400', 'bg-red-500', 'bg-gray-300'];
   color: string = this.colorlist[2];
   taskid: string = '';

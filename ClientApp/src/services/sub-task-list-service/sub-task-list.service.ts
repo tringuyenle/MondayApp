@@ -16,4 +16,10 @@ export class SubTaskListService {
       this.sub_task_list = data;
     })
   }
+
+  deleteSubTask(id: string, parent_id: string) {
+    this.sub_task_service.deleteSubTask(id, true).subscribe({
+      error: () => this.getSubTaskList(parent_id)
+    })
+  }
 }
