@@ -114,7 +114,8 @@ export class ExpandgroupComponent implements OnInit {
     // setInterval(() => this.task_list_service.getTaskList(), 1000);
   }
 
-  constructor(public task_list_service: TaskListService, public add_task_service: AddTaskService, public edit_task_service: EditTaskService, private task_service: TaskService) {}
+  constructor(public task_list_service: TaskListService, public add_task_service: AddTaskService, 
+    public edit_task_service: EditTaskService, private task_service: TaskService) {}
 
 
 }
