@@ -34,16 +34,15 @@
         <div *ngFor="let subtask of sub_task_list_service.sub_task_list" cdkDrag class="flex flex-col">  
             <!-- Delete button -->
             <div  *ngIf="subtask.parent_task == parent_id" class="w-full hover:bg-slate-100 group ">
-                <!-- <div class="pl-2 h-8 absolute left-px flex items-end">
-                    <button class="p-1 hover:bg-slate-300 rounded-md" (click)="task_list_service.deleteTask(task)">
-                        <div class="group-hover:fill-currentColor">
+                <div class="pl-2 h-8 absolute left-11 flex items-end">
+                    <button class="p-1 hover:bg-slate-300 rounded-md" (click)="sub_task_list_service.deleteSubTask(subtask)">
+                        <div class="hidden group-hover:block">
                             <svg xmlns="http://www.w3.org/2000/svg" height="1.2em" viewBox="0 0 448 512">
-                                <path fill="white" class="group-hover:fill-black"
-                                    d="M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z" />
+                                <path fill="currentColor" d="M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z" />
                             </svg>
                         </div>
                     </button>
-                </div> -->
+                </div>
                 <div class="flex flex-col p-1 py-0">
                     <div class="flex flex-col border-solid border-l-blue-500 border-gray-200 border-t-2 border-l-8">
                         <div class="flex items-center">
@@ -53,21 +52,20 @@
                                     class="border-gray-200">
                             </div>
                             <!-- Name column -->
-                            <div class="w-1/3 justify-between flex pt-1 border-r-2 border-solid border-gray-300 group">
-                                <!-- <div class="flex flex-1">
-                                    <div (click)="edit_task_service.editCell(task)"
-                                        (keyup.enter)="edit_task_service.saveCell(task)" class="mt-1">
+                            <div class="w-1/3 justify-between flex pt-1 pl-4 border-r-2 border-solid border-gray-300 group">
+                                <div class="flex flex-1">
+                                    <div (click)="edit_sub_task_service.editCell(subtask.id)"
+                                        (keyup.enter)="edit_sub_task_service.saveCell(subtask)" class="mt-1">
                                         <span class="flex">
-                                            <ng-container *ngIf="edit_task_service.edit_task_id === task.id; else displayCell">
+                                            <ng-container *ngIf="edit_sub_task_service.edit_sub_task_id === subtask.id; else displayCell">
                                                 <input
                                                     class="w-full py-0 placeholder:text-sm px-0 border-y-white border-x-white group-hover:border-gray-300 rounded-md"
-                                                    type="text" [(ngModel)]="task.name">
+                                                    type="text" [(ngModel)]="subtask.name">
                                             </ng-container>
-                                            <ng-template #displayCell>{{ task.name }}</ng-template>
+                                            <ng-template #displayCell>{{ subtask.name }}</ng-template>
                                         </span>
                                     </div>
-                                </div> -->
-                                {{subtask.name}}
+                                </div>
 
                             <button (click)="isDrawerOpen=true; tempTaskName=subtask.name; tempPerson=subtask.create_by;"  class="flex items-center border border-gray-300 p-1 mb-1 mr-2 rounded">
                                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" height="1em"
@@ -98,23 +96,23 @@
                                 {{subtask.create_by}}
                         </button>
                             <!-- Status column -->
-                            <!-- <button (click)="editColor(task)"
-                                class="relative text-white w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200 {{task.status}}">
-                                <ng-container *ngIf="taskid == task.id;">
+                            <button (click)="editColor(subtask)"
+                                class="relative text-white w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200 {{subtask.status}}">
+                                <ng-container *ngIf="subTaskid == subtask.id;">
                                     <div class="absolute top-10 z-10 h-fit p-4 rounded-md shadow-2xl bg-white">
-                                        <button *ngFor="let c of colorlist" (click)="editColorSuccess(c, task)"
+                                        <button *ngFor="let c of colorlist" (click)="editColorSuccess(c, subtask)"
                                             class="flex justify-center items-center w-full {{c}} py-1 px-2 rounded-md mb-1 text-white">
                                             {{Status.get(c)}}
                                         </button>
                                     </div>
                                 </ng-container>
-                                {{ Status.get(task.status) }}
-                            </button> -->
-                            <!-- <div class="w-40 flex justify-center p-1 border-r-2 border-solid border-gray-200">
+                                {{ Status.get(subtask.status) }}
+                            </button>
+                            <div class="w-40 flex justify-center p-1 border-r-2 border-solid border-gray-200">
                                 <input type="date" id="{{subtask.id}}date"
                                     class="p-0.5 pl-4 border-none border-inherit group-hover:bg-slate-100 hover:border-solid hover:border-gray-300"
                                     value="{{subtask.create_date}}" (change)="setdate(subtask)">
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -144,10 +142,10 @@
                     </div>
                     <div class="w-1/3 flex px-2 py-1">
                         <div class="w-full">
-                            <form >
+                            <form [formGroup]="add_task_service.task_form">
                                 <input
                                     class="w-full py-0 placeholder:text-sm pl-5 border-y-white border-x-white group-hover:border-gray-300 rounded-md"
-                                     type="text" formControlName="name"
+                                    type="text" formControlName="name" (keyup.enter)="add_task_service.saveSubTask(parent_id)" (click)="add_task_service.buildForm('',parent_id)"
                                     placeholder="+ Add Task">
                             </form>
                         </div>

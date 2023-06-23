@@ -35,5 +35,10 @@ export class SubTaskService {
     return this.http_client.delete<Task>(temp);
   }
 
+  updateSubTask(update_task: Task): Observable<Task> {
+    let temp = this.url +  `/${update_task.id}`;
+
+    return this.http_client.put<Task>(temp, update_task);
+  }
   
 }

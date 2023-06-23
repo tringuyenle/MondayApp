@@ -13,7 +13,7 @@ export class EditTaskService {
 
   editCell(task: Task): void {
     this.edit_task_id = task.id;
-   }
+  }
  
   saveCell(task: Task): void {
     this.task_service.updateTask(task).subscribe({

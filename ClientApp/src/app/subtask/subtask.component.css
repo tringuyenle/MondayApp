@@ -1,0 +1,60 @@
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 0px 4px 4px 0px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    background-color: #f4f5f8;
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .example-box:last-child {
+    border: none;
+  }
+  
+  .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  .example-listbox-container {
+    display: block;
+    width: 250px;
+    border: 1px solid black;
+  }
+  
+  .example-listbox-label {
+    display: block;
+    padding: 5px;
+  }
+  
+  .example-listbox {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .example-option {
+    position: relative;
+    padding: 5px 5px 5px 25px;
+  }
+  
+  .example-option[aria-selected='true']::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="m9.55 18-5.7-5.7 1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4Z"/></svg>'); /* stylelint-disable-line */
+    background-size: cover;
+    position: absolute;
+    left: 2px;
+  }
+  
+  .example-option:focus {
+    background: rgba(0, 0, 0, 0.2);
+  }
