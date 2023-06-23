@@ -5,6 +5,8 @@ import { EditTaskService } from 'src/services/edit-task-service/edit-task.servic
 import { Task } from 'src/app/task';
 import { TaskService } from 'src/services/task-service/task.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { ViewChild, AfterViewInit } from '@angular/core';
+import { SubtaskComponent } from 'src/app/subtask/subtask.component';
 
 @Component({
   selector: 'app-expandgroup',
@@ -19,6 +21,12 @@ export class ExpandgroupComponent implements OnInit {
   isDrawerOpen: boolean = false;
   tempTaskName: string = '';
   tempPerson: string = '';
+
+  receiveInfo($event: { param1: string, param2: string }){
+    this.isDrawerOpen = true;
+    this.tempTaskName = $event.param1;
+    this.tempPerson = $event.param2;
+  }
 
   suboftaskid: string[] = [];
 

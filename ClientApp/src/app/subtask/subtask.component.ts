@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SubTaskListService } from 'src/services/sub-task-list-service/sub-task-list.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { TaskListService } from 'src/services/task-list-service/task-list.service';
@@ -16,10 +16,16 @@ export class SubtaskComponent implements OnInit {
   selectedAll: any;
   subTaskid: string = '';
 
-  isDrawerOpen: boolean = false;
-  tempTaskName: string = '';
-  tempPerson: string = '';
-  
+  // isDrawerOpen: boolean = false;
+  // tempTaskName: string = '';
+  // tempPerson: string = '';
+  @Output() openDrawer = new EventEmitter<{param1: string, param2: string}>();
+
+  openSubTaskDrawer(tempTaskName: string, tempPerson: string){
+    const message = { param1: tempTaskName, param2: tempPerson };
+    this.openDrawer.emit(message);
+  }
+
   @Input() parent_id: string = '';
   colorlist: string[] = ['bg-green-400', 'bg-amber-400', 'bg-red-500', 'bg-gray-300'];
   color: string = this.colorlist[2];
