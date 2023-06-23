@@ -20,8 +20,6 @@ export class ExpandgroupComponent implements OnInit {
   tempTaskName: string = '';
   tempPerson: string = '';
 
-  id = 0;
-
   suboftaskid: string[] = [];
 
   colorlist: string[] = ['bg-green-400', 'bg-amber-400', 'bg-red-500', 'bg-gray-300'];
@@ -38,7 +36,8 @@ export class ExpandgroupComponent implements OnInit {
 
   addPerson(): void {
     this.personlist.push(this.person);
-  }
+  }  
+
   openSubtask(task: Task): void {
     if (!this.suboftaskid.includes(task.id)) 
       this.suboftaskid.push(task.id);
@@ -115,7 +114,5 @@ export class ExpandgroupComponent implements OnInit {
 
   constructor(public task_list_service: TaskListService, public add_task_service: AddTaskService, 
     public edit_task_service: EditTaskService, private task_service: TaskService) {}
-
-
 }
 
