@@ -65,7 +65,7 @@
                                     </span>
                                 </div>
 
-                            <!-- <button (click)="isDrawerOpen=true; tempTaskName=task.name; tempPerson=task.create_by;"  class="flex items-center border border-gray-300 p-1 mb-1 mr-2 rounded">
+                            <button (click)="isDrawerOpen=true; tempTaskName=subtask.name; tempPerson=subtask.create_by;"  class="flex items-center border border-gray-300 p-1 mb-1 mr-2 rounded">
                                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" height="1em"
                                     viewBox="0 0 512 512">
                                     <path
@@ -74,25 +74,25 @@
                                 <span>
                                     Open
                                 </span>
-                            </button> -->
+                            </button>
                         </div>
                         <!-- Person column -->
-                        <!-- <button (click)="editPerson(task)"
+                        <button (click)="editPerson(subtask)"
                             class="relative text-black w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200">
-                            <ng-container *ngIf="personid == task.id;">
+                            <ng-container *ngIf="personid == subtask.id;">
                                 <div class="absolute top-10 z-10 h-fit p-4 rounded-md shadow-2xl bg-white">
-                                    <button *ngFor="let p of personlist" (click)="editPersonSuccess(p, task)"
+                                    <button *ngFor="let p of personlist" (click)="editPersonSuccess(p, subtask)"
                                         class="flex justify-center border items-center w-full py-1 px-3 rounded-md mb-1 text-black">
                                         {{p}}
                                     </button>
-                                    <div (click)="clickInputAddPerson(task)">
+                                    <div (click)="clickInputAddPerson(subtask)">
                                         <input type="text" [(ngModel)]="person" (keyup.enter)="addPerson()"
                                             placeholder="Add Person" class="rounded border-gray-300">
                                         </div>
                                     </div>
                                 </ng-container>
-                                {{task.create_by}}
-                        </button> -->
+                                {{subtask.create_by}}
+                        </button>
                             <!-- Status column -->
                             <button (click)="editColor(subtask)"
                                 class="relative text-white w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200 {{subtask.status}}">
@@ -153,3 +153,4 @@
         </div>
     </div>
 </div>
+<app-task-drawer [name]="tempTaskName" [person]="tempPerson" [isOpen]="isDrawerOpen" (closed)="isDrawerOpen = false"></app-task-drawer>

@@ -15,11 +15,11 @@ export class SubTaskListService implements OnInit{
 
   constructor(private sub_task_service: SubTaskService) { }
 
-  // getSubTaskList(parent_id: string) {
-  //   this.sub_task_service.getSubTaskList(parent_id).subscribe( data => {
-  //     this.sub_task_list = data;
-  //   })
-  // }
+  getSubTaskListbyParentId(parent_id: string) {
+    this.sub_task_service.getSubTaskList(parent_id).subscribe( data => {
+      this.sub_task_list = data;
+    })
+  }
 
   getSubTaskList() {
     this.sub_task_service.getAllSubTask().subscribe(data => {
