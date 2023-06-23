@@ -13,8 +13,31 @@ import { AddTaskService } from 'src/services/add-task-service/add-task.service';
 })
 export class SubtaskComponent implements OnInit{
   selectedAll: any;
-
+  subTaskid: string = '';
   @Input() parent_id: string = '';
+  colorlist: string[] = ['bg-green-400', 'bg-amber-400', 'bg-red-500', 'bg-gray-300'];
+  color: string = this.colorlist[2];
+  Status = new Map<string, string>([["bg-green-400", "Done"], ['bg-amber-400', 'Working on it'], ['bg-red-500', 'Stuck'], ['bg-gray-300', 'None']]);
+
+  editColor(task: Task): void {
+    if (this.subTaskid === '') this.subTaskid = task.id;
+    else this.subTaskid = '';
+    console.log(this.subTaskid);
+  }
+  editColorSuccess(c: string, t: Task): void {
+    this.color = c;
+    t.status = c;
+    this.save(t);
+  }
+
+  save(task: Task) {
+    // this.edit_task_service.saveCell(task)
+  }
+
+  setdate(t: Task): void {
+    t.create_date = (<HTMLInputElement>document.getElementById(t.id+"date")).value;
+    this.save(t);
+  }
   
   selectAll() {
 
