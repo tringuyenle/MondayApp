@@ -11,7 +11,6 @@ import { HeaderComponent } from './header/header.component';
 import { BoardcontentComponent } from './boardcontent/boardcontent.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BoardinfoComponent } from './boardinfo/boardinfo.component';
-import { TaskListComponent } from './task-list/task-list.component';
 import { CollapsegroupComponent } from './group/collapsegroup/collapsegroup.component';
 import { ExpandgroupComponent } from './group/expandgroup/expandgroup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -46,7 +45,6 @@ registerLocaleData(en);
     BoardcontentComponent,
     BoardinfoComponent,
     SidebarComponent,
-    TaskListComponent,
     CollapsegroupComponent,
     TaskDrawerComponent,
     ExpandgroupComponent,

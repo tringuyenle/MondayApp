@@ -9,12 +9,14 @@ import { TaskService } from '../task-service/task.service';
 export class GroupTaskListService {
 
   group_task_list: Grouptask[] = [];
+  first_group!: Grouptask;
 
   constructor(private group_task_service: GroupTaskService, private task_service: TaskService) { }
 
   getGroupTaskList() {
     this.group_task_service.getGroupTaskList().subscribe(data => {
       this.group_task_list = data;
+      this.first_group = data[0];
     });
   }
 

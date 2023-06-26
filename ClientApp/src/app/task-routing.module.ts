@@ -2,7 +2,6 @@ import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { TaskListComponent } from './task-list/task-list.component';
 import { BoardcontentComponent } from './boardcontent/boardcontent.component';
 
 const routes: Routes = [
