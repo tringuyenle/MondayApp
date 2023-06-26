@@ -28,8 +28,11 @@ namespace MondayApp.Services
         public async Task update(string id, Tasks update_task) =>
             await _taskCollection.ReplaceOneAsync(x => x.id == id, update_task);
 
-        public async Task delete (string id) =>
+        public async Task deleteOne (string id) =>
             await _taskCollection.DeleteOneAsync(x => x.id == id);
+
+        public async Task deleteMany (string parent_id) =>
+            await _taskCollection.DeleteManyAsync(x => x.parent_task == parent_id);
 
     }
 }

@@ -21,10 +21,10 @@ export class AddGroupTaskService {
       id: '',
       name: '',
       parent_id: '',
-      color: '',
+      color: [],
     });
 
-    const group_task: Grouptask = { id: "", name: "", parent_id: "", color: "" };
+    const group_task: Grouptask = { id: "", name: "", parent_id: "", color: [] };
 
     this.display(group_task);
   }
