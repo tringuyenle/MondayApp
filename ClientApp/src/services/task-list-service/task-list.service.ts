@@ -23,6 +23,7 @@ export class TaskListService implements OnInit {
     this.task_service.getTaskList().subscribe(data => {
       this.task_list = data;
     })
+    
   }
 
   reloadTaskList(): void {
