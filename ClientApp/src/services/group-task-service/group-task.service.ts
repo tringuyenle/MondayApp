@@ -16,8 +16,8 @@ export class GroupTaskService {
     return this.http_client.get<Grouptask[]>(this.url);
   }
 
-  updateGroupTask(id: string, update_group_task: Grouptask): Observable<Grouptask> {
-    let temp = this.url + `/${id}`;
+  updateGroupTask(update_group_task: Grouptask): Observable<Grouptask> {
+    let temp = this.url + `/${update_group_task.id}`;
 
     return this.http_client.put<Grouptask>(temp, update_group_task);
   }

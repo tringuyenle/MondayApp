@@ -1,8 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { TaskListService } from '../task-list-service/task-list.service';
 import { Task } from 'src/app/task';
-import { FormBuilder, FormGroup, FormsModule, FormControlName, FormControl } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { TaskService } from '../task-service/task.service';
 import { SubTaskService } from '../sub-task-service/sub-task.service';
 import { SubTaskListService } from '../sub-task-list-service/sub-task-list.service';
