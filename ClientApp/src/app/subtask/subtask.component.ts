@@ -75,9 +75,9 @@ export class SubtaskComponent implements OnInit {
     }
 
   selectAll() {
-    // this.selectedAll = this.subtask_list_service.task_list.every(function (item: any) {
-    //   return item.selected == true;
-    // })
+    for (var i = 0; i < this.sub_task_list_service.sub_task_list.length; i++) {
+      this.sub_task_list_service.sub_task_list[i].selected = this.selectedAll;
+    }
   }
 
   ngOnInit(): void {
