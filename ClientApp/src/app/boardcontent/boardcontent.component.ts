@@ -7,7 +7,7 @@ import { GroupTaskListService } from 'src/services/group-task-list-service/group
   styleUrls: ['./boardcontent.component.css']
 })
 export class BoardcontentComponent implements OnInit {
-  collapse: boolean = false;
+  collapse: string[] = [];
 
   constructor(public group_task_list_service: GroupTaskListService) {};
 

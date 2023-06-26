@@ -1,14 +1,13 @@
 <div class="pl-10 pt-4 relative" style= "height:500px; white-space: nowrap; overflow-y: scroll;">
 
-    <div *ngFor="let group_task of group_task_list_service.group_task_list">
-        <div *ngIf="collapse; else elseexpand">
-            <app-collapsegroup [group_task]="group_task" [(collapsec)]="collapse"></app-collapsegroup>
-        </div>
-        <br><br>
-        <ng-template #elseexpand>
+    <div *ngFor="let group_task of group_task_list_service.group_task_list" class="mb-3">
+        <div *ngIf="collapse.includes(group_task.id); else elsecollap">
             <app-expandgroup [group_task]="group_task" [(collapsee)]="collapse"></app-expandgroup>
+        </div>
+        
+        <ng-template #elsecollap>
+            <app-collapsegroup [group_task]="group_task" [(collapsec)]="collapse"></app-collapsegroup>
         </ng-template>
-
     </div>
 
     <button class="mt-3">

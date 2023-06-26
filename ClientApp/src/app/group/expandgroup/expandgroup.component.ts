@@ -16,9 +16,9 @@ import { Grouptask } from 'src/app/grouptask';
   providers: [TaskListService, AddTaskService],
 })
 export class ExpandgroupComponent implements OnInit {
-  @Input() collapsee: boolean = false;
+  @Input() collapsee: string[] = [];
   @Input() group_task!: Grouptask;
-  @Output() collapseeChange = new EventEmitter<boolean>();
+  @Output() collapseeChange = new EventEmitter<string[]>();
   
   constructor(public task_list_service: TaskListService, public add_task_service: AddTaskService, 
               public edit_task_service: EditTaskService, private task_service: TaskService) {}
@@ -62,7 +62,8 @@ export class ExpandgroupComponent implements OnInit {
   }
 
   changetocollapse() {
-    this.collapseeChange.emit(true);
+    this.collapsee = this.collapsee.filter((id) => id !== this.group_task.id);
+    this.collapseeChange.emit(this.collapsee);
   }
 
   drop(event: CdkDragDrop<string[]>) {
