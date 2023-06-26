@@ -14,9 +14,12 @@ export class TaskDrawerComponent {
     this.closed.emit();
   }
   
-  // message: string = "";
+  message: string = "";
+  list_message: string[] = [];
 
-  // getMessage(event: any){
-  //   this.message = event.target.value;
-  // }
+  getMessage(event: any){
+    this.message = event.target.value;
+    this.list_message.push(this.message);
+    console.log(this.list_message);
+  }
 }

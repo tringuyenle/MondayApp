@@ -13,26 +13,45 @@
       Phụ trách: {{person}}
     </p> <br>
   </div>
-  <!-- <div class="px-4">
-    <input type="text" (keyup.enter)="getMessage($event)" class="border-blue-400 rounded w-full border-2" placeholder="Write an update...">
-  </div> -->
-  <div class="flex justify-end">
+  <div class="px-4">
+    <input type="text" (keyup.enter)="getMessage($event)" class="border-blue-400 rounded w-full border-2"
+      placeholder="Write an update...">
+  </div>
+  <div class="flex justify-between items-center pl-5">
+    <span class="text-gray-500 text-sm"> Enter to post message </span>
     <button id="myButton" class="rounded text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 p-2 mt-1 mr-6">
       Update
     </button>
   </div>
-  <div>
-    <!-- {{myusername}} -->
-    <!-- {{message}} -->
-  </div>
 
-  <div class="absolute inset-x-0 bottom-20">
-    <div class="flex items-center justify-center"><img class="justify-self-center object-cover h-48 w-96"
-        src="https://cdn.monday.com/images/pulse-page-empty-state.svg"></div>
-    <div class="post_not_found_text">
-      <h2 class="text-center font-semibold text-2xl p-2 mt-2"> No updates yet for this item</h2>
-      <p class="text-center font-md p-1">Be the first one to update about progress, mention someone <br> or upload files
-        to share with your team members</p>
+  <div *ngIf="list_message.length != 0 else elseEmptyState">
+    <div *ngFor="let message of list_message">
+      <div class="border-2 rounded border-gray-300 m-4 p-2">
+        <div class="flex items-center">
+          <img class="p-1" width="30px" height="30px" src="https://cdn1.monday.com/dapulse_default_photo.png" class="person-bullet-image person-bullet-component post-header-person-bullet" aria-hidden="true">
+          <span class="pl-3"> Worldsoft Company </span>
+        </div>
+        <div class="mt-2">
+          {{message}}
+        </div>
+        <div class="grid justify-items-center">
+          <div class="border-t-2 border-r-2">Like</div>
+          <div class="border-t-2">Reply</div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <ng-template #elseEmptyState>
+    <div class="absolute inset-x-0 bottom-20">
+      <div class="flex items-center justify-center"><img class="justify-self-center object-cover h-48 w-96"
+          src="https://cdn.monday.com/images/pulse-page-empty-state.svg"></div>
+      <div class="post_not_found_text">
+        <h2 class="text-center font-semibold text-2xl p-2 mt-2"> No updates yet for this item</h2>
+        <p class="text-center font-md p-1">Be the first one to update about progress, mention someone <br> or upload
+          files
+          to share with your team members</p>
+      </div>
+    </div>
+  </ng-template>
 </div>
