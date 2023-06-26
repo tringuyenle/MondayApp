@@ -17,12 +17,12 @@
                 <div class="flex items-center group">
                     <button (click)="changetocollapse()">
                         <svg class="ml-2 mr-1" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
-                            <path class="fill-blue-500"
+                            <path class="{{group_task.color[3]}}"
                                 d="M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
                         </svg>
                     </button>
                     <div (click)="edit_group_task_service.editCell(group_task.id)" (keyup.enter)="edit_group_task_service.saveCell(group_task)">
-                        <span class="py-1 ml-2 text-xl text-blue-500 font-medium">
+                        <span class="py-1 ml-2 text-xl {{group_task.color[1]}} font-medium">
                             <ng-container *ngIf="edit_group_task_service.edit_group_id === group_task.id; else displayCell">
                                 <input (blur)="edit_group_task_service.saveCell(group_task)"
                                     class="w-full py-0 placeholder:text-sm px-0 border-y-white border-x-white group-hover:border-gray-300 rounded-md"
@@ -48,7 +48,7 @@
 <div>
     <div class="flex flex-col p-1 py-0">
         <div
-            class="flex flex-col border-solid py-0 border-l-blue-500 border-gray-200 border-t-2 border-l-8 rounded-tl-md">
+            class="flex flex-col border-solid py-0 {{group_task.color[0]}} border-gray-200 border-t-2 border-l-8 rounded-tl-md">
             <div class="flex items-center">
                 <div class="p-2 border-r-2 border-solid border-gray-200">
                     <input type="checkbox" [(ngModel)]="selectedAll" (change)="selectAll();" class="border-gray-200">
@@ -91,7 +91,7 @@
                     </button>
                 </div>
                 <div class="flex flex-col p-1 py-0">
-                    <div class="flex flex-col border-solid border-l-blue-500 border-gray-200 border-t-2 border-l-8">
+                    <div class="flex flex-col border-solid {{group_task.color[0]}} border-gray-200 border-t-2 border-l-8">
                         <div class="flex items-center">
                             <!-- Checkbox column -->
                             <div class="p-2 border-r-2 border-solid border-gray-200">
@@ -182,7 +182,7 @@
                 </div>
             </div>
             <ng-container *ngIf="suboftaskid.includes(task.id);">
-                <app-subtask (openDrawer)="receiveInfo($event)" [parent_id]="task.id"></app-subtask>
+                <app-subtask (openDrawer)="receiveInfo($event)" [parent_id]="task.id" [grouptask]="group_task"></app-subtask>
             </ng-container>
         </div>
     </div>
@@ -201,7 +201,7 @@
         </div>
         <div class="flex flex-col p-1 py-0">
             <div
-                class="flex flex-col border-solid border-l-blue-200 group-hover:border-l-blue-500 border-gray-200 border-y-2 border-l-8 rounded-bl-md">
+                class="flex flex-col border-solid {{group_task.color[2]}} group-hover:{{group_task.color[0]}} border-y-gray-200 border-y-2 border-l-8 rounded-bl-md">
                 <div class="flex items-center">
                     <div class="p-2 border-r-2 border-solid border-gray-200">
                         <input type="checkbox" class="border-gray-200" disabled>

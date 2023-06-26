@@ -6,6 +6,7 @@ import { Task } from '../task';
 import { NgFor, NgIf } from '@angular/common';
 import { AddTaskService } from 'src/services/add-task-service/add-task.service';
 import { EditSubTaskService } from 'src/services/edit-sub-task-service/edit-sub-task.service';
+import { Grouptask } from '../grouptask';
 
 @Component({
   selector: 'app-subtask',
@@ -15,6 +16,7 @@ import { EditSubTaskService } from 'src/services/edit-sub-task-service/edit-sub-
 export class SubtaskComponent implements OnInit {
   selectedAll: any;
   subTaskid: string = '';
+  @Input() grouptask!: Grouptask;
 
   // isDrawerOpen: boolean = false;
   // tempTaskName: string = '';

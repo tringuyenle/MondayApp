@@ -8,13 +8,13 @@
     </div>
     <div>
         <div class="flex flex-col p-1">
-            <div class="flex flex-col border-solid py-1 border-l-blue-500 border-gray-200 border-2 border-l-8 rounded-l-md">
+            <div class="flex flex-col border-solid py-1 {{group_task.color[0]}} border-gray-200 border-2 border-l-8 rounded-l-md">
                 <div class="flex items-center">
                     <button (click)="changetoexpand()">
-                        <svg viewBox="0 0 20 20" fill="currentColor" width="24" height="24" role="button" tabindex="0" aria-hidden="false" class="icon_4b23d45e02 clickable_f2c35f1e3f" data-testid="icon"><path d="M12.5303 9.46967L12 10L12.5303 10.5303C12.8232 10.2374 12.8232 9.76256 12.5303 9.46967ZM10.9393 10L7.46967 13.4697C7.17678 13.7626 7.17678 14.2374 7.46967 14.5303C7.76256 14.8232 8.23744 14.8232 8.53033 14.5303L12.5303 10.5303L12 10L12.5303 9.46967L8.53033 5.46967C8.23744 5.17678 7.76256 5.17678 7.46967 5.46967C7.17678 5.76256 7.17678 6.23744 7.46967 6.53033L10.9393 10Z" fill="currentColor" class="fill-blue-500" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                        <svg viewBox="0 0 20 20" fill="currentColor" width="24" height="24" role="button" tabindex="0" aria-hidden="false" class="icon_4b23d45e02 clickable_f2c35f1e3f" data-testid="icon"><path d="M12.5303 9.46967L12 10L12.5303 10.5303C12.8232 10.2374 12.8232 9.76256 12.5303 9.46967ZM10.9393 10L7.46967 13.4697C7.17678 13.7626 7.17678 14.2374 7.46967 14.5303C7.76256 14.8232 8.23744 14.8232 8.53033 14.5303L12.5303 10.5303L12 10L12.5303 9.46967L8.53033 5.46967C8.23744 5.17678 7.76256 5.17678 7.46967 5.46967C7.17678 5.76256 7.17678 6.23744 7.46967 6.53033L10.9393 10Z" fill="currentColor" class="{{group_task.color[3]}}" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                     </button>
                     <div (click)="edit_group_task_service.editCell(group_task.id)" (keyup.enter)="edit_group_task_service.saveCell(group_task)">
-                        <span class="py-1 ml-2 text-xl text-blue-500 font-medium">
+                        <span class="py-1 ml-2 text-xl {{group_task.color[1]}} font-medium">
                             <ng-container *ngIf="edit_group_task_service.edit_group_id === group_task.id; else displayCell">
                                 <input (blur)="edit_group_task_service.saveCell(group_task)"
                                     class="w-full py-0 placeholder:text-sm px-0 border-y-white border-x-white group-hover:border-gray-300 rounded-md"

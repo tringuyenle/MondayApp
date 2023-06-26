@@ -18,7 +18,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 
-import { AddTaskComponent } from './boardcontent/add-task/add-task.component';
 import { TaskRoutingModule } from './task-routing.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -49,7 +48,6 @@ registerLocaleData(en);
     SidebarComponent,
     TaskListComponent,
     CollapsegroupComponent,
-    AddTaskComponent,
     TaskDrawerComponent,
     ExpandgroupComponent,
     SubtaskComponent,

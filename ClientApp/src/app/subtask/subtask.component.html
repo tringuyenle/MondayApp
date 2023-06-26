@@ -1,7 +1,7 @@
-<div class="ml-2 pb-8 pt-3 pl-8 border-solid border-l-2 border-t-2 border-l-blue-500">
+<div class="ml-2 pb-8 pt-3 pl-8 border-solid border-l-2 border-t-2 {{grouptask.color[0]}}">
     <div class="flex flex-col p-1 py-0">
         <div
-            class="flex flex-col border-solid py-0 border-l-blue-500 border-gray-200 border-t-2 border-l-8 rounded-tl-md">
+            class="flex flex-col border-solid py-0 {{grouptask.color[0]}} border-gray-200 border-t-2 border-l-8 rounded-tl-md">
             <div class="flex items-center">
                 <div class="p-2 border-r-2 border-solid border-gray-200">
                     <input type="checkbox" [(ngModel)]="selectedAll" (change)="selectAll();" class="border-gray-200">
@@ -44,7 +44,7 @@
                     </button>
                 </div>
                 <div class="flex flex-col p-1 py-0">
-                    <div class="flex flex-col border-solid border-l-blue-500 border-gray-200 border-t-2 border-l-8">
+                    <div class="flex flex-col border-solid {{grouptask.color[0]}} border-gray-200 border-t-2 border-l-8">
                         <div class="flex items-center">
                             <!-- Checkbox column -->
                             <div class="p-2 border-r-2 border-solid border-gray-200">
@@ -138,7 +138,7 @@
         </div>
         <div class="flex flex-col p-1 py-0">
             <div
-                class="flex flex-col border-solid border-l-blue-200 group-hover:border-l-blue-500 border-gray-200 border-y-2 border-l-8 rounded-bl-md">
+                class="flex flex-col border-solid {{grouptask.color[2]}} group-hover:{{grouptask.color[0]}} border-y-gray-200 border-y-2 border-l-8 rounded-bl-md">
                 <div class="flex items-center">
                     <div class="p-2 border-r-2 border-solid border-gray-200">
                         <input type="checkbox" class="border-gray-200" disabled>
