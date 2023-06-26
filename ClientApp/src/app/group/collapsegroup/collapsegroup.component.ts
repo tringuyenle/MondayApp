@@ -9,10 +9,10 @@ import { TaskListService } from 'src/services/task-list-service/task-list.servic
   styleUrls: ['./collapsegroup.component.css']
 })
 export class CollapsegroupComponent implements OnInit {
-  @Input() collapsec: boolean = false;
+  @Input() collapsec: string[]= [];
   @Input() group_task!: Grouptask;
 
-  @Output() collapsecChange = new EventEmitter<boolean>();
+  @Output() collapsecChange = new EventEmitter<string[]>();
 
   constructor (public taskListService: TaskListService) {
   }
@@ -22,6 +22,7 @@ export class CollapsegroupComponent implements OnInit {
   }
 
   changetoexpand() {
-    this.collapsecChange.emit(false);
+    this.collapsec.push(this.group_task.id)
+    this.collapsecChange.emit(this.collapsec);
   }
 }

@@ -1,14 +1,13 @@
-<div class="pl-10 pt-4 relative" style= "height:380px; white-space: nowrap; overflow-y: scroll;">
+<div class="pl-10 pt-4 relative" style= "height:500px; white-space: nowrap; overflow-y: scroll;">
 
-    <div *ngFor="let group_task of group_task_list_service.group_task_list">
-        <div *ngIf="collapse.includes(group_task.id); else elseexpand">
-            <app-collapsegroup [group_task]="group_task" [(collapsec)]="collapse"></app-collapsegroup>
+    <div *ngFor="let group_task of group_task_list_service.group_task_list" class="mb-3">
+        <div *ngIf="collapse.includes(group_task.id); else elsecollap">
+            <app-expandgroup (openDrawer)="receiveInfo($event)" [group_task]="group_task" [(collapsee)]="collapse"></app-expandgroup>
         </div>
-        <br><br>
-        <ng-template #elseexpand>
-            <app-expandgroup [group_task]="group_task" [(collapsee)]="collapse"></app-expandgroup>
+        
+        <ng-template #elsecollap>
+            <app-collapsegroup [group_task]="group_task" [(collapsec)]="collapse"></app-collapsegroup>
         </ng-template>
-
     </div>
 
     <button class="mt-3">
@@ -25,4 +24,5 @@
 
     <!-- <app-task-list></app-task-list> -->
 </div>
+<app-task-drawer [name]="tempTaskName" [person]="tempPerson" [isOpen]="isDrawerOpen" (closed)="isDrawerOpen = false"></app-task-drawer>
 

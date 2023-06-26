@@ -16,9 +16,9 @@ import { Grouptask } from 'src/app/grouptask';
   providers: [TaskListService, AddTaskService],
 })
 export class ExpandgroupComponent implements OnInit {
-  @Input() collapsee: boolean = false;
+  @Input() collapsee: string[] = [];
   @Input() group_task!: Grouptask;
-  @Output() collapseeChange = new EventEmitter<boolean>();
+  @Output() collapseeChange = new EventEmitter<string[]>();
   
   constructor(public task_list_service: TaskListService, public add_task_service: AddTaskService, 
               public edit_task_service: EditTaskService, private task_service: TaskService) {}
@@ -29,14 +29,23 @@ export class ExpandgroupComponent implements OnInit {
     // setInterval(() => this.task_list_service.getTaskList(), 1000);
   }
 
-  isDrawerOpen: boolean = false;
-  tempTaskName: string = '';
-  tempPerson: string = '';
+  @Output() isDrawerOpen: boolean = false;
+  @Output() tempTaskName: string = '';
+  @Output() tempPerson: string = '';
 
   receiveInfo($event: { param1: string, param2: string }){
     this.isDrawerOpen = true;
     this.tempTaskName = $event.param1;
     this.tempPerson = $event.param2;
+    const message = { param1: this.tempTaskName, param2: this.tempPerson };
+    this.openDrawer.emit(message);
+  }
+  
+  @Output() openDrawer = new EventEmitter<{param1: string, param2: string}>();
+
+  openTaskDrawer(tempTaskName: string, tempPerson: string){
+    const message = { param1: tempTaskName, param2: tempPerson };
+    this.openDrawer.emit(message);
   }
 
   suboftaskid: string[] = [];
@@ -62,7 +71,8 @@ export class ExpandgroupComponent implements OnInit {
   }
 
   changetocollapse() {
-    this.collapseeChange.emit(true);
+    this.collapsee = this.collapsee.filter((id) => id !== this.group_task.id);
+    this.collapseeChange.emit(this.collapsee);
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -76,7 +86,7 @@ export class ExpandgroupComponent implements OnInit {
     this.task_list_service.getTaskList();
 
     for(var task of this.task_list_service.task_list) {
-      if(task.parent_task == this.group_task.id) count++;
+      if(task.parent_task == this.group_task.id) count ++;
     }
     
     return count;

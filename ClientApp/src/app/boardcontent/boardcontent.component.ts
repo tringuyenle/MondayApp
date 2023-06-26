@@ -8,7 +8,7 @@ import { GroupTaskListService } from 'src/services/group-task-list-service/group
   providers: [GroupTaskListService]
 })
 export class BoardcontentComponent implements OnInit {
-  collapse: boolean = false;
+  collapse: string[] = [];
 
   constructor(public group_task_list_service: GroupTaskListService) {};
 
@@ -16,4 +16,13 @@ export class BoardcontentComponent implements OnInit {
       this.group_task_list_service.getGroupTaskList();
   }
 
+  isDrawerOpen: boolean = false;
+  tempTaskName: string = '';
+  tempPerson: string = '';
+
+  receiveInfo($event: { param1: string, param2: string }){
+    this.isDrawerOpen = true;
+    this.tempTaskName = $event.param1;
+    this.tempPerson = $event.param2;
+  }
 }
