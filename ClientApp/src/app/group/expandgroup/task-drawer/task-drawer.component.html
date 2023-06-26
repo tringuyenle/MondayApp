@@ -1,4 +1,4 @@
-<div class="drawer-container bg-white h-full rounded border-l-3 border-gray-200 shadow-xl relative"
+<div class="drawer-container bg-white h-full rounded border-l-3 border-gray-200 shadow-xl relative" style="overflow-y: scroll;"
   [style.right.px]="isOpen ? 0 : -800">
   <button class="close rounded-lg mt-2 ml-2 py-2 px-3 text-xl text-center font-semibold hover:bg-gray-300"
     (click)="closeDrawer()">x</button>
@@ -26,17 +26,17 @@
 
   <div *ngIf="list_message.length != 0 else elseEmptyState">
     <div *ngFor="let message of list_message">
-      <div class="border-2 rounded border-gray-300 m-4 p-2">
-        <div class="flex items-center">
+      <div class="border-2 rounded border-gray-300 m-4 pt-2">
+        <div class="flex items-center ml-2">
           <img class="p-1" width="30px" height="30px" src="https://cdn1.monday.com/dapulse_default_photo.png" class="person-bullet-image person-bullet-component post-header-person-bullet" aria-hidden="true">
           <span class="pl-3"> Worldsoft Company </span>
         </div>
-        <div class="mt-2">
+        <div class="mt-2 ml-2 p-2 pb-4">
           {{message}}
         </div>
-        <div class="grid justify-items-center">
-          <div class="border-t-2 border-r-2">Like</div>
-          <div class="border-t-2">Reply</div>
+        <div class="flex justify-between">
+          <div class="w-1/2 border-t-2 border-r-2 hover:bg-gray-300 text-center p-1">Like</div>
+          <div class="w-1/2 border-t-2 hover:bg-gray-300 text-center p-1">Reply</div>
         </div>
       </div>
     </div>

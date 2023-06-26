@@ -19,7 +19,7 @@ export class TaskDrawerComponent {
 
   getMessage(event: any){
     this.message = event.target.value;
-    this.list_message.push(this.message);
+    this.list_message.unshift(this.message);
     console.log(this.list_message);
   }
 }
