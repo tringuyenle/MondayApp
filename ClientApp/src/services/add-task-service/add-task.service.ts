@@ -67,13 +67,13 @@ export class AddTaskService implements OnInit {
     });
   }
 
-  saveTask() {
+  saveTask(parent_id: string) {
     const t: Task = { ...this.task, ...this.task_form.value };
     this.task_service.createTask(t).subscribe({
       error: (err) => {
         console.log("Thêm thành công");
         this.task_list_service.reloadTaskList();
-        this.onSaveComplete();
+        this.onSaveComplete(parent_id);
       }
     });
   }
@@ -89,9 +89,9 @@ export class AddTaskService implements OnInit {
     });
   }
 
-  onSaveComplete(): void {
+  onSaveComplete(parent_id: string): void {
     // this.task_form.reset();
-    this.buildForm('','');
+    this.buildForm('',parent_id);
   }
 
   onSaveCompleteSubTask(parent_id: string) {
