@@ -13,4 +13,10 @@ export class TaskDrawerComponent {
   closeDrawer() {
     this.closed.emit();
   }
+  
+  // message: string = "";
+
+  // getMessage(event: any){
+  //   this.message = event.target.value;
+  // }
 }

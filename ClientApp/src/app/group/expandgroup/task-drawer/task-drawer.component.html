@@ -13,12 +13,19 @@
       Phụ trách: {{person}}
     </p> <br>
   </div>
-  <div class="px-4">
-    <input type="text" class="border-blue-400 rounded w-full border-2" placeholder="Write an update...">
-  </div>
+  <!-- <div class="px-4">
+    <input type="text" (keyup.enter)="getMessage($event)" class="border-blue-400 rounded w-full border-2" placeholder="Write an update...">
+  </div> -->
   <div class="flex justify-end">
-    <span class="text-sm text-gray-500 pr-4">Write updates via email:</span>
+    <button id="myButton" class="rounded text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 p-2 mt-1 mr-6">
+      Update
+    </button>
   </div>
+  <div>
+    <!-- {{myusername}} -->
+    <!-- {{message}} -->
+  </div>
+
   <div class="absolute inset-x-0 bottom-20">
     <div class="flex items-center justify-center"><img class="justify-self-center object-cover h-48 w-96"
         src="https://cdn.monday.com/images/pulse-page-empty-state.svg"></div>
