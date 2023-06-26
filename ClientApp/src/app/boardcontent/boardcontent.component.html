@@ -3,7 +3,7 @@
     <div cdkDropList (cdkDropListDropped)="drop($event)">
         <div *ngFor="let group_task of group_task_list_service.group_task_list" cdkDrag class="mb-3">
             <div *ngIf="collapse.includes(group_task.id); else elsecollap">
-                <app-expandgroup (openDrawer)="receiveInfo($event)" [group_task]="group_task" [(collapsee)]="collapse"></app-expandgroup>
+                <app-expandgroup (openDrawer)="receiveInfo($event)" (openDrawer)="receiveInfo($event)" [group_task]="group_task" [(collapsee)]="collapse"></app-expandgroup>
             </div>
             
             <ng-template #elsecollap>
