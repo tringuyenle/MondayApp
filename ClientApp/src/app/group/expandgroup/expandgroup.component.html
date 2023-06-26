@@ -105,7 +105,12 @@
                                                     class="w-full py-0 placeholder:text-sm px-0 border-y-white border-x-white group-hover:border-gray-300 rounded-md"
                                                     type="text" [(ngModel)]="task.name">
                                             </ng-container>
-                                            <ng-template #displayCell>{{ task.name }}</ng-template>
+                                            <ng-template #displayCell> <span style="
+                                                display:inline-block;
+                                                white-space: nowrap;
+                                                overflow: hidden;
+                                                text-overflow: ellipsis;
+                                                max-width: 25ch;">{{ task.name }}</span></ng-template>
                                         </span>
                                     </div>
                                 </div>
