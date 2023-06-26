@@ -1,11 +1,4 @@
-<div class="pl-10 pt-4 relative" style= "height:450px; white-space: nowrap; overflow-y: scroll;">
-    <!-- <div *ngIf="collapse; else elseexpand">
-        <app-collapsegroup [(collapsec)]="collapse"></app-collapsegroup>
-    </div>
-     
-    <ng-template #elseexpand>
-        <app-expandgroup [(collapsee)]="collapse"></app-expandgroup>
-    </ng-template> -->
+<div class="pl-10 pt-4 relative" style= "height:500px; white-space: nowrap; overflow-y: scroll;">
 
     <div *ngFor="let group_task of group_task_list_service.group_task_list">
         <div *ngIf="collapse; else elseexpand">
@@ -27,6 +20,4 @@
 
     <!-- <app-task-list></app-task-list> -->
 </div>
-
-
 
