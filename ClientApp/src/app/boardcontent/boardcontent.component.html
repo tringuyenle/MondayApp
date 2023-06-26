@@ -24,7 +24,7 @@
                 <form [formGroup]="add_group_service.group_form">
                     <input
                         class="w-full py-0 placeholder:text-sm pl-5 border-y-white border-x-white group-hover:border-gray-300 rounded-md"
-                        (keyup.enter)="add_group_service.saveGroup('')" type="text" formControlName="name"
+                        (keydown.enter)="add_group_service.saveGroup('')" (keyup.enter)="group_task_list_service.getGroupTaskList()"  type="text" formControlName="name"
                         placeholder="+ Add Task">
                 </form>
             </span>

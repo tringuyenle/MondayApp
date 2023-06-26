@@ -52,13 +52,24 @@ namespace MondayApp.Controllers
         }
 
         [HttpDelete("{id:length(24)}")]
-        public async Task<IActionResult> delete(string id)
+        public async Task<IActionResult> delete(string id, bool flag)
         {
-            var temp_task = await _taskService.get(id);
+            //flag is true -> delete one Task, id is task_id
+            //flag is false -> delete many Task, id is task_parent_id
+            //var temp_task = await _taskService.get(id);
 
-            if (temp_task == null) { return NotFound(); }
+            //if (temp_task == null) { return NotFound(); }
 
-            await _taskService.delete(id);
+            if(flag)
+            {
+                await _taskService.deleteOne(id);
+            }
+            else
+            {
+                await _taskService.deleteMany(id);
+            }
+
+            //await _taskService.delete(id);
 
             return Ok("Xóa thành công");
         }
