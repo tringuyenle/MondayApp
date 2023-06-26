@@ -22,9 +22,9 @@
                         </svg>
                     </button>
                     <span class="py-1 ml-2 text-xl text-blue-500 font-medium">
-                        This Month
+                        {{group_task.name}}
                     </span>
-                    <span class="ml-5 text-gray-500 hidden group-hover:block">{{task_list_service.task_list.length}}
+                    <span class="ml-5 text-gray-500 hidden group-hover:block"> {{task_list_service.task_list.length}}
                         Tasks</span>
                 </div>
             </div>
@@ -65,7 +65,7 @@
     <div cdkDropList (cdkDropListDropped)="drop($event)">
         <div *ngFor="let task of task_list_service.task_list" cdkDrag class="flex flex-col">
             <!-- Delete button -->
-            <div class="w-full hover:bg-slate-100 group ">
+            <div *ngIf="task.parent_task == group_task.id" class="w-full hover:bg-slate-100 group ">
                 <div class="pl-2 h-8 absolute left-px flex items-end">
                     <button class="p-1 hover:bg-slate-300 rounded-md" (click)="task_list_service.deleteTask(task)">
                         <div class="group-hover:fill-currentColor">
@@ -160,7 +160,7 @@
                 </div>
             </div>
             <ng-container *ngIf="suboftaskid.includes(task.id);">
-                <app-subtask [parent_id]="task.id" (openDrawer)="receiveInfo($event)"></app-subtask>
+                <app-subtask [parent_id]="task.id"></app-subtask>
             </ng-container>
         </div>
     </div>
@@ -190,7 +190,7 @@
                             <form [formGroup]="add_task_service.task_form">
                                 <input
                                     class="w-full py-0 placeholder:text-sm pl-5 border-y-white border-x-white group-hover:border-gray-300 rounded-md"
-                                    (keyup.enter)="add_task_service.saveTask()" type="text" formControlName="name"
+                                    (keyup.enter)="add_task_service.saveTask(group_task.id)" type="text" formControlName="name"
                                     placeholder="+ Add Task">
                             </form>
                         </div>
@@ -198,9 +198,9 @@
                 </div>
             </div>
         </div>
+        <app-task-drawer [name]="tempTaskName" [person]="tempPerson" [isOpen]="isDrawerOpen" (closed)="isDrawerOpen = false"></app-task-drawer>
     </div>
 </div>
-<app-task-drawer [name]="tempTaskName" [person]="tempPerson" [isOpen]="isDrawerOpen" (closed)="isDrawerOpen = false"></app-task-drawer>
 
 
 

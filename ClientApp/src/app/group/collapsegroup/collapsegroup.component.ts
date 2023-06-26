@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { initPopovers } from 'flowbite';
+import { Grouptask } from 'src/app/grouptask';
 import { TaskListService } from 'src/services/task-list-service/task-list.service';
 
 @Component({
@@ -8,6 +10,8 @@ import { TaskListService } from 'src/services/task-list-service/task-list.servic
 })
 export class CollapsegroupComponent implements OnInit {
   @Input() collapsec: boolean = false;
+  @Input() group_task!: Grouptask;
+
   @Output() collapsecChange = new EventEmitter<boolean>();
 
   constructor (public taskListService: TaskListService) {

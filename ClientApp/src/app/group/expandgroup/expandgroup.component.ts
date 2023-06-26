@@ -7,6 +7,7 @@ import { TaskService } from 'src/services/task-service/task.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { ViewChild, AfterViewInit } from '@angular/core';
 import { SubtaskComponent } from 'src/app/subtask/subtask.component';
+import { Grouptask } from 'src/app/grouptask';
 
 @Component({
   selector: 'app-expandgroup',
@@ -16,6 +17,7 @@ import { SubtaskComponent } from 'src/app/subtask/subtask.component';
 })
 export class ExpandgroupComponent implements OnInit {
   @Input() collapsee: boolean = false;
+  @Input() group_task!: Grouptask;
   @Output() collapseeChange = new EventEmitter<boolean>();
   
   constructor(public task_list_service: TaskListService, public add_task_service: AddTaskService, 
@@ -23,7 +25,7 @@ export class ExpandgroupComponent implements OnInit {
 
   ngOnInit(): void {
     this.task_list_service.getTaskList();
-    this.add_task_service.buildForm('','');
+    this.add_task_service.buildForm('',this.group_task.id);
     // setInterval(() => this.task_list_service.getTaskList(), 1000);
   }
 
@@ -63,12 +65,21 @@ export class ExpandgroupComponent implements OnInit {
     this.collapseeChange.emit(true);
   }
 
-  // clickToOpenDrawer(){
-  //   this.isDrawerOpen.emit(true);
-  // }
-
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.task_list_service.task_list, event.previousIndex, event.currentIndex);
+  }
+
+  countTask(): number {
+    var temp: Task[] = [];
+    var count: number = 0;
+
+    this.task_list_service.getTaskList();
+
+    for(var task of this.task_list_service.task_list) {
+      if(task.parent_task == this.group_task.id) count ++;
+    }
+    
+    return count;
   }
 }
 

@@ -50,7 +50,6 @@ export class SubtaskComponent implements OnInit {
     t.create_date = (<HTMLInputElement>document.getElementById(t.id+"date")).value;
     this.save(t);
   }
-
     //check selected Person Column
     personid: string = '';
     personlist: string[] = ['Thành', 'Quân', 'Nguyên'];
