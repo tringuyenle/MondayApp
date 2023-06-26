@@ -10,6 +10,7 @@ import { SubTaskListService } from '../sub-task-list-service/sub-task-list.servi
 export class TaskListService implements OnInit {
 
   task_list: Task[] = [];
+  counter: number = 0;
 
   constructor(private task_service: TaskService, private sub_task_service: SubTaskService,
               private sub_task_list_service: SubTaskListService) { } 
@@ -42,5 +43,15 @@ export class TaskListService implements OnInit {
         }
       });
     }    
+  }
+
+  countTask(groupid: string): number {
+    this.counter = 0;
+    for (let i = 0; i < this.task_list.length; i++) {
+      if (this.task_list[i].parent_task === groupid) {
+        this.counter++;
+      }
+    }
+    return this.counter;
   }
 }
