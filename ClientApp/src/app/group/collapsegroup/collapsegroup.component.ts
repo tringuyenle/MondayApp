@@ -14,7 +14,7 @@ export class CollapsegroupComponent implements OnInit {
 
   @Output() collapsecChange = new EventEmitter<string[]>();
 
-  constructor (public taskListService: TaskListService) {
+  constructor (public taskListService: TaskListService, public task_list_service: TaskListService) {
   }
 
   ngOnInit(): void {
