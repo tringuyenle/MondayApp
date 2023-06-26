@@ -18,13 +18,13 @@ export class AddTaskService implements OnInit {
               private sub_task_list_service: SubTaskListService) { }
 
   ngOnInit(): void {
-    this.buildForm('','');
-    console.log("ngOnInit");
+    // this.buildForm('','');
+    // console.log("ngOnInit");
   }
 
   buildForm(name: string, parent_id: string ) {
-    console.log('name:' + name);
-    console.log('parent_id' + parent_id);
+    // console.log('name:' + name);
+    // console.log('parent_id' + parent_id);
 
     this.task_form = this.formBuilder.group({
       id: '',
@@ -46,7 +46,7 @@ export class AddTaskService implements OnInit {
 
   displayTask(task: Task): void {
 
-    console.log("Display task" + task.name);
+    // console.log("Display task" + task.name);
 
     if (this.task_form) {
       this.task_form.reset();
@@ -96,6 +96,6 @@ export class AddTaskService implements OnInit {
   onSaveCompleteSubTask(parent_id: string) {
     this.task_form.reset();
     this.buildForm('',parent_id);
-    console.log("Reset Form");
+    // console.log("Reset Form");
   }
 }

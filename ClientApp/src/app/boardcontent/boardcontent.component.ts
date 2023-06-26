@@ -1,5 +1,6 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
+import { AddGroupTaskService } from 'src/services/add-group-task-service/add-group-task.service';
 import { GroupTaskListService } from 'src/services/group-task-list-service/group-task-list.service';
 import { TaskListService } from 'src/services/task-list-service/task-list.service';
 
@@ -12,11 +13,13 @@ import { TaskListService } from 'src/services/task-list-service/task-list.servic
 export class BoardcontentComponent implements OnInit {
   collapse: string[] = [];
 
-  constructor(public group_task_list_service: GroupTaskListService, public task_list_service: TaskListService) {};
+  constructor(public group_task_list_service: GroupTaskListService, public task_list_service: TaskListService,
+              public add_group_service: AddGroupTaskService) {};
 
   ngOnInit(): void {
       this.group_task_list_service.getGroupTaskList();
       this.task_list_service.getTaskList();
+      this.add_group_service.buildForm('','');
   }
 
   drop(event: CdkDragDrop<string[]>) {

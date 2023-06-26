@@ -24,7 +24,7 @@
                     <div (click)="edit_group_task_service.editCell(group_task.id)" (keyup.enter)="edit_group_task_service.saveCell(group_task)">
                         <span class="py-1 ml-2 text-xl text-blue-500 font-medium">
                             <ng-container *ngIf="edit_group_task_service.edit_group_id === group_task.id; else displayCell">
-                                <input
+                                <input (blur)="edit_group_task_service.saveCell(group_task)"
                                     class="w-full py-0 placeholder:text-sm px-0 border-y-white border-x-white group-hover:border-gray-300 rounded-md"
                                     type="text" [(ngModel)]="group_task.name">
                             </ng-container>
@@ -115,7 +115,7 @@
                                         (keyup.enter)="edit_task_service.saveCell(task)" class="mt-1">
                                         <span class="flex">
                                             <ng-container *ngIf="edit_task_service.edit_task_id === task.id; else displayCell">
-                                                <input
+                                                <input (blur)="edit_task_service.saveCell(task)"
                                                     class="w-full py-0 placeholder:text-sm px-0 border-y-white border-x-white group-hover:border-gray-300 rounded-md"
                                                     type="text" [(ngModel)]="task.name">
                                             </ng-container>
@@ -140,16 +140,18 @@
                             </button>
                         </div>
                         <!-- Person column -->
-                        <button (click)="edit_task_service.editPerson(task)"
+                        <button (click)="edit_task_service.editPerson(task.id)" 
                             class="relative text-black w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200">
                             <ng-container *ngIf="edit_task_service.personid == task.id;">
-                                <div class="absolute top-10 z-10 h-fit p-4 rounded-md shadow-2xl bg-white">
-                                    <button *ngFor="let p of edit_task_service.personlist" (click)="edit_task_service.editPersonSuccess(p, task)"
+                                <div class="absolute top-10 z-10 h-fit p-4 rounded-md shadow-2xl bg-white" >
+                                    <div>
+                                        <button *ngFor="let p of edit_task_service.personlist" (click)="edit_task_service.editPersonSuccess(p, task)"
                                         class="flex justify-center border items-center w-full py-1 px-3 rounded-md mb-1 text-black">
                                         {{p}}
-                                    </button>
-                                    <div (click)="edit_task_service.clickInputAddPerson(task)">
-                                        <input type="text" [(ngModel)]="edit_task_service.person" (keyup.enter)="edit_task_service.addPerson()"
+                                        </button>
+                                    </div>
+                                    <div (click)="edit_task_service.clickInputAddPerson(task)" >
+                                        <input type="text" [(ngModel)]="edit_task_service.person"  (keyup.enter)="edit_task_service.addPerson()"
                                             placeholder="Add Person" class="rounded border-gray-300">
                                         </div>
                                     </div>

@@ -28,7 +28,7 @@ export class ExpandgroupComponent implements OnInit {
               public edit_group_task_service: EditGroupTaskService) {}
 
   ngOnInit(): void {
-    console.log("Init Expandgroup");
+    // console.log("Init Expandgroup");
     this.task_list_service.getTaskList();
     this.add_task_service.buildForm('',this.group_task.id);
   }
