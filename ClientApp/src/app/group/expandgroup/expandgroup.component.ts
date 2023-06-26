@@ -9,6 +9,7 @@ import { ViewChild, AfterViewInit } from '@angular/core';
 import { SubtaskComponent } from 'src/app/subtask/subtask.component';
 import { Grouptask } from 'src/app/grouptask';
 import { EditGroupTaskService } from 'src/services/edit-group-task-service/edit-group-task.service';
+import { GroupTaskListService } from 'src/services/group-task-list-service/group-task-list.service';
 
 @Component({
   selector: 'app-expandgroup',
@@ -25,7 +26,8 @@ export class ExpandgroupComponent implements OnInit {
   
   constructor(public task_list_service: TaskListService, public add_task_service: AddTaskService, 
               public edit_task_service: EditTaskService, private task_service: TaskService,
-              public edit_group_task_service: EditGroupTaskService) {}
+              public edit_group_task_service: EditGroupTaskService,
+              public group_task_list_service: GroupTaskListService) {}
 
   ngOnInit(): void {
     // console.log("Init Expandgroup");

@@ -28,7 +28,6 @@ export class GroupTaskService {
 
   deleteGroupTask(id: string): Observable<Grouptask> {
     let temp = this.url + `/${id}`;
-
     return this.http_client.delete<Grouptask>(temp);
   }
 
