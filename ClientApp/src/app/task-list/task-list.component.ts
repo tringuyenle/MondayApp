@@ -30,7 +30,7 @@ export class TaskListComponent implements OnInit{
 
   deleteTask(delete_task: Task): void {
     if(confirm(`Are you sure to delete this task ${delete_task.name}?`)) {
-      this.task_service.deleteTask(delete_task.id).subscribe({
+      this.task_service.deleteTask(delete_task.id, true).subscribe({
         error: () =>this.reloadList()
       })
     }

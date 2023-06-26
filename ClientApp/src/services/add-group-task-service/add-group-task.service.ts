@@ -28,8 +28,6 @@ export class AddGroupTaskService {
               private group_task_list_service: GroupTaskListService) { }
 
   buildForm(name: string, parent_id: string) {
-
-
     this.group_form = this.formBuilder.group({
       id: '',
       name: '',

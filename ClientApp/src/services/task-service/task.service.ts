@@ -25,15 +25,11 @@ export class TaskService {
 
   createTask(new_task: Task): Observable<Task> {
     new_task.id = '';
-    // new_task.child_task = [];
-    // new_task.parent_task = '';
-
-
     return this.http_client.post<Task>(this.task_url, new_task);
   }
 
-  deleteTask(id: string): Observable<Task> {
-    let temp_url = this.task_url + `/${id}`;
+  deleteTask(id: string, flag: boolean): Observable<Task> {
+    let temp_url = this.task_url + `/${id}` + `?flag=${flag}`;
 
     return this.http_client.delete<Task>(temp_url);
   }
