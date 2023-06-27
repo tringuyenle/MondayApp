@@ -1,5 +1,4 @@
-<div class="pl-10 pt-4 relative" style= "height:380px; white-space: nowrap; overflow-y: scroll;">
-
+<div class="pl-10 pt-4 relative" style= "height:500px; white-space: nowrap; overflow-y: scroll;">
     <div cdkDropList (cdkDropListDropped)="drop($event)">
         <div *ngFor="let group_task of group_task_list_service.group_task_list" cdkDrag class="mb-2">
             <div *ngIf="collapse.includes(group_task.id); else elsecollap">
