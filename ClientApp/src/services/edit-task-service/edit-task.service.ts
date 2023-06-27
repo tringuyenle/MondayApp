@@ -36,7 +36,6 @@ export class EditTaskService {
   }
 
   editPerson(task_id: string): void {
-
     if (this.personid === '') this.personid = task_id;
     else if (this.personid == 'add') this.personid = task_id;
     else this.personid = '';

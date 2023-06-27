@@ -21,6 +21,7 @@ export class BoardinfoComponent implements OnInit{
   }
 
   add(first_group: Grouptask) {
+    this.group_task_list_service.getGroupTaskList();
     this.add_task_service.buildForm("New Task", first_group.id);
     this.add_task_service.saveTask('');
     window.location.reload();

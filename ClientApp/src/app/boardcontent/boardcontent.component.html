@@ -1,8 +1,8 @@
-<div class="pl-10 pt-4 relative" style= "height:500px; white-space: nowrap; overflow-y: scroll;">
+<div class="pl-10 pt-4 relative" style= "height:380px; white-space: nowrap; overflow-y: scroll;">
     <div cdkDropList (cdkDropListDropped)="drop($event)">
         <div *ngFor="let group_task of group_task_list_service.group_task_list" cdkDrag class="mb-2">
             <div *ngIf="collapse.includes(group_task.id); else elsecollap">
-                <app-expandgroup (openDrawer)="receiveInfo($event)" (openDrawer)="receiveInfo($event)" [group_task]="group_task" [(collapsee)]="collapse"></app-expandgroup>
+                <app-expandgroup (openDrawer)="receiveInfo($event)" [group_task]="group_task" [(collapsee)]="collapse"></app-expandgroup>
             </div>
             
             <ng-template #elsecollap>
@@ -12,7 +12,7 @@
     </div>
 
     <button class="mt-3 ml-1">
-        <div class="flex items-center p-1 border-2 border-gray-300 hover:bg-slate-300 rounded">
+        <div class="flex items-center p-1 border-2 border-gray-300 rounded">
             <svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20" aria-hidden="true"
                 class="icon_4b23d45e02 leftIcon_0e9d75fef6 noFocusStyle_cff5f5a050" data-testid="icon">
                 <path

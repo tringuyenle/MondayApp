@@ -8,6 +8,7 @@ import { Task } from 'src/app/task';
 export class SubTaskListService implements OnInit{
 
   sub_task_list: Task[] = [];
+  counter: number = 0;
 
   ngOnInit(): void {
       this.getSubTaskList();
@@ -35,5 +36,14 @@ export class SubTaskListService implements OnInit{
     }
   }
 
+  countSubTask(parent_task_id: string): number {
+    this.counter = 0;
+    for (let i = 0; i < this.sub_task_list.length; i++) {
+      if (this.sub_task_list[i].parent_task === parent_task_id) {
+        this.counter++;
+      }
+    }
+    return this.counter;
+  }
   
 }
