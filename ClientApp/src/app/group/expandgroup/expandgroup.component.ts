@@ -10,12 +10,13 @@ import { SubtaskComponent } from 'src/app/subtask/subtask.component';
 import { Grouptask } from 'src/app/grouptask';
 import { EditGroupTaskService } from 'src/services/edit-group-task-service/edit-group-task.service';
 import { GroupTaskListService } from 'src/services/group-task-list-service/group-task-list.service';
+import { SubTaskListService } from 'src/services/sub-task-list-service/sub-task-list.service';
 
 @Component({
   selector: 'app-expandgroup',
   templateUrl: './expandgroup.component.html',
   styleUrls: ['./expandgroup.component.css'],
-  providers: [TaskListService, AddTaskService],
+  providers: [TaskListService, AddTaskService, SubTaskListService],
 })
 export class ExpandgroupComponent implements OnInit {
   @Input() collapsee: string[] = [];
@@ -27,11 +28,13 @@ export class ExpandgroupComponent implements OnInit {
   constructor(public task_list_service: TaskListService, public add_task_service: AddTaskService, 
               public edit_task_service: EditTaskService, private task_service: TaskService,
               public edit_group_task_service: EditGroupTaskService,
-              public group_task_list_service: GroupTaskListService) {}
+              public group_task_list_service: GroupTaskListService,
+              public sub_task_list_service: SubTaskListService) {}
 
   ngOnInit(): void {
     // console.log("Init Expandgroup");
     this.task_list_service.getTaskList();
+    this.sub_task_list_service.getSubTaskList();
     this.add_task_service.buildForm('',this.group_task.id);
   }
 
