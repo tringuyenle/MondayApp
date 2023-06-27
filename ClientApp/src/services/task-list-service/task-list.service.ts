@@ -23,7 +23,6 @@ export class TaskListService implements OnInit {
     this.task_service.getTaskList().subscribe(data => {
       this.task_list = data;
     })
-    
   }
 
   reloadTaskList(): void {
@@ -31,19 +30,27 @@ export class TaskListService implements OnInit {
     console.log("Đã reload danh sách!");
   }
 
-  deleteTask(delete_task: Task): void {
-    if(confirm(`Are you sure to delete this task ${delete_task.name}?`)) {
+  deleteTask(delete_task: Task, ask: boolean): void {
+    if(ask) {
+      if(confirm(`Are you sure to delete this task ${delete_task.name}?`)) {
+        this.sub_task_service.deleteSubTask(delete_task.id, false).subscribe({
+          error: () => console.log("Delete SUbtask")
+        })
+        this.task_service.deleteTask(delete_task.id,true).subscribe({
+          error: () => {
+            this.reloadTaskList();
+          }
+        });
+      } 
+    }
+    else {
       this.sub_task_service.deleteSubTask(delete_task.id, false).subscribe({
-        error: () => {
-          
-        }
-      });
+        error: () => console.log("delete Subtask")
+      })
       this.task_service.deleteTask(delete_task.id,true).subscribe({
-        error: () => {
-          this.reloadTaskList();
-        }
+        error: () => console.log('Delete Task')
       });
-    }    
+    }  
   }
 
   countTask(groupid: string): number {

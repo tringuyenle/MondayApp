@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Task } from '../../app/task';
 import { Observable } from 'rxjs';
+import { SubTaskService } from '../sub-task-service/sub-task.service';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ export class TaskService {
 
   private readonly task_url = "http://localhost:5157/api/Task";
 
-  constructor(private http_client: HttpClient) { }
+  constructor(private http_client: HttpClient, private sub_task_service: SubTaskService) { }
 
   getTaskList(): Observable<Task[]> {
     return this.http_client.get<Task[]>(this.task_url);
