@@ -39,6 +39,7 @@ export class ExpandgroupComponent implements OnInit {
   @Output() tempTaskName: string = '';
   @Output() tempPerson: string = '';
 
+  // receive info from sub-task component and send info to board-content component
   receiveInfo($event: { param1: string, param2: string }){
     this.isDrawerOpen = true;
     this.tempTaskName = $event.param1;
@@ -49,6 +50,7 @@ export class ExpandgroupComponent implements OnInit {
   
   @Output() openDrawer = new EventEmitter<{param1: string, param2: string}>();
 
+  //send info from expandgroup component to board-content component
   openTaskDrawer(tempTaskName: string, tempPerson: string){
     const message = { param1: tempTaskName, param2: tempPerson };
     this.openDrawer.emit(message);
