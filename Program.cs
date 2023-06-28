@@ -8,6 +8,7 @@ builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("M
 builder.Services.AddSingleton<TaskService>();
 builder.Services.AddSingleton<SubTaskServices>();
 builder.Services.AddSingleton<GroupTaskService>();
+builder.Services.AddSingleton<MessageService>();
 // Add services to the container.
 
 builder.Services.AddControllers();

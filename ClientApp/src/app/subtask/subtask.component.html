@@ -82,16 +82,16 @@
                             </button>
                         </div>
                         <!-- Person column -->
-                        <button (click)="editPerson(subtask)"
+                        <button (click)="edit_sub_task_service.editPerson(subtask)"
                             class="relative text-black w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200">
-                            <ng-container *ngIf="personid == subtask.id;">
+                            <ng-container *ngIf="edit_sub_task_service.personid == subtask.id;">
                                 <div class="absolute top-10 z-10 h-fit p-4 rounded-md shadow-2xl bg-white">
-                                    <button *ngFor="let p of personlist" (click)="editPersonSuccess(p, subtask)"
+                                    <button *ngFor="let p of edit_sub_task_service.personlist" (click)="edit_sub_task_service.editPersonSuccess(p, subtask)"
                                         class="flex justify-center border items-center w-full py-1 px-3 rounded-md mb-1 text-black">
                                         {{p}}
                                     </button>
-                                    <div (click)="clickInputAddPerson(subtask)">
-                                        <input type="text" [(ngModel)]="person" (keyup.enter)="addPerson()"
+                                    <div (click)="edit_sub_task_service.clickInputAddPerson(subtask)">
+                                        <input type="text" [(ngModel)]="edit_sub_task_service.person" (keyup.enter)="edit_sub_task_service.addPerson()"
                                             placeholder="Add Person" class="rounded border-gray-300">
                                         </div>
                                     </div>
@@ -99,22 +99,22 @@
                                 {{subtask.create_by}}
                         </button>
                             <!-- Status column -->
-                            <button (click)="editColor(subtask)"
+                            <button (click)="edit_sub_task_service.editColor(subtask)"
                                 class="relative text-white w-40 flex justify-center p-2 border-r-2 border-solid border-gray-200 {{subtask.status}}">
-                                <ng-container *ngIf="subTaskid == subtask.id;">
+                                <ng-container *ngIf="edit_sub_task_service.subTaskid == subtask.id;">
                                     <div class="absolute top-10 z-10 h-fit p-4 rounded-md shadow-2xl bg-white">
-                                        <button *ngFor="let c of colorlist" (click)="editColorSuccess(c, subtask)"
+                                        <button *ngFor="let c of edit_sub_task_service.colorlist" (click)="edit_sub_task_service.editColorSuccess(c, subtask)"
                                             class="flex justify-center items-center w-full {{c}} py-1 px-2 rounded-md mb-1 text-white">
-                                            {{Status.get(c)}}
+                                            {{edit_sub_task_service.Status.get(c)}}
                                         </button>
                                     </div>
                                 </ng-container>
-                                {{ Status.get(subtask.status) }}
+                                {{ edit_sub_task_service.Status.get(subtask.status) }}
                             </button>
                             <div class="w-40 flex justify-center p-1 border-r-2 border-solid border-gray-200">
                                 <input type="date" id="{{subtask.id}}date"
                                     class="p-0.5 pl-4 border-none border-inherit group-hover:bg-slate-100 hover:border-solid hover:border-gray-300"
-                                    value="{{subtask.create_date}}" (change)="setdate(subtask)">
+                                    value="{{subtask.create_date}}" (change)="edit_sub_task_service.setdate(subtask)">
                             </div>
                         </div>
                     </div>

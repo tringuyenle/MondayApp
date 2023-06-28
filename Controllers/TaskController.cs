@@ -56,9 +56,6 @@ namespace MondayApp.Controllers
         {
             //flag is true -> delete one Task, id is task_id
             //flag is false -> delete many Task, id is task_parent_id
-            //var temp_task = await _taskService.get(id);
-
-            //if (temp_task == null) { return NotFound(); }
 
             if(flag)
             {
