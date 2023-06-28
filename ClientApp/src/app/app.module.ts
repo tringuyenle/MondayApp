@@ -22,18 +22,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import {MatTreeModule} from '@angular/material/tree';
+import { MatTreeModule } from '@angular/material/tree';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { TaskDrawerComponent } from './group/expandgroup/task-drawer/task-drawer.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
-import {CdkDropList, CdkDrag } from '@angular/cdk/drag-drop';
-import {CdkListbox, CdkOption} from '@angular/cdk/listbox';
-import {NgFor, NgIf, JsonPipe} from '@angular/common';
+import { CdkDropList, CdkDrag } from '@angular/cdk/drag-drop';
+import { CdkListbox, CdkOption } from '@angular/cdk/listbox';
+import { NgFor, NgIf, JsonPipe } from '@angular/common';
 import { SubtaskComponent } from './subtask/subtask.component';
+import { ModalComponent } from './modal/modal.component';
+import { Modal } from 'flowbite';
 
 registerLocaleData(en);
 
@@ -49,6 +51,7 @@ registerLocaleData(en);
     TaskDrawerComponent,
     ExpandgroupComponent,
     SubtaskComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -58,13 +61,6 @@ registerLocaleData(en);
     TaskRoutingModule,
     ReactiveFormsModule,
     RouterModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatNativeDateModule,
-    MatTreeModule,
-    MatIconModule,
-    MatTableModule,
     CdkDropList, NgFor, CdkDrag, FormsModule, ReactiveFormsModule, CdkListbox, CdkOption, JsonPipe, NgIf, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule,
     MatSidenavModule, MatCheckboxModule, FormsModule, MatButtonModule,
   ],
