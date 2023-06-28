@@ -1,5 +1,5 @@
 <div class="drawer-container bg-white h-full rounded border-l-3 border-gray-200 shadow-xl relative" style="overflow-y: scroll;"
-  [style.right.px]="isOpen ? 0 : -800">
+  [style.right.px]="isOpen ? 0 : -800" [style.transition-duration.ms]="isOpen ? 300 : 0">
   <button class="close rounded-lg mt-2 ml-2 py-2 px-3 text-xl text-center font-semibold hover:bg-gray-300"
     (click)="closeDrawer()">x</button>
   <div class="header pl-5">
