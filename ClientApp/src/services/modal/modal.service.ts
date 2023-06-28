@@ -30,7 +30,6 @@ export class ModalService {
         }
 
         modal.open();
-        console.log(this.modals);
     }
 
     close() {
